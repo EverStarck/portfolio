@@ -3,6 +3,8 @@ import styled from "@emotion/styled";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
+import ReactFullpage from "@fullpage/react-fullpage";
+
 import ChangeLanguage from "../ChangeLanguage";
 import ProjectFrame from "./project/ProjectFrame";
 
@@ -28,10 +30,29 @@ const IzqFrame = () => {
       <h1>{t("h1")}</h1>
       <ChangeLanguage />
 
-      <ProjectFrame />
-      <ProjectFrame />
-      <ProjectFrame />
-      <ProjectFrame />
+      <ReactFullpage
+        navigation
+        navigationPosition = 'left'
+        render={() => (
+          <ReactFullpage.Wrapper>
+            <div className="section" data-anchor="slide1">
+              <ProjectFrame />
+            </div>
+            <div className="section" data-anchor="slide2">
+              <ProjectFrame />
+            </div>
+            <div className="section" data-anchor="slide3">
+              <ProjectFrame />
+            </div>
+            <div className="section" data-anchor="slide4">
+              <ProjectFrame />
+            </div>
+            <div className="section" data-anchor="slide5">
+              <ProjectFrame />
+            </div>
+          </ReactFullpage.Wrapper>
+        )}
+      />
     </IzqStyled>
   );
 };
