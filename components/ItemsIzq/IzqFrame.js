@@ -12,6 +12,9 @@ const IzqStyled = styled.main`
   width: 70vw;
   height: 100%;
   min-height: 200vh;
+  @media only screen and (max-width: 767px) {
+    width: 100vw;
+  }
 `;
 
 const IzqFrame = () => {

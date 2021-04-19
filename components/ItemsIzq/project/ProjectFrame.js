@@ -10,11 +10,18 @@ import ProjectInfo from "./ProjectInfo";
 const StyledProject = styled.section`
   border: 1px solid red;
   height: 100vh;
-  width: 90vw;
+  /* width: 70vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-left: 80px;
+  .projectCointaner {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
 `;
 
 const ProjectFrame = () => {
@@ -41,8 +48,10 @@ const ProjectFrame = () => {
 
   return (
     <StyledProject ref={(el) => (project = el)}>
-      <ProjectImage goToProject={goToProject} />
-      <ProjectInfo />
+      <div className="projectCointaner">
+        <ProjectImage goToProject={goToProject} />
+        <ProjectInfo goToProject={goToProject}/>
+      </div>
     </StyledProject>
   );
 };

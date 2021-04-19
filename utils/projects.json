@@ -1,0 +1,53 @@
+{
+  "GoogleClone": {
+    "title": "Google Clone",
+    "anchor": "googleClone",
+    "description": "{t('googleDesc')}",
+    "url": "https://googl.everstarck.com",
+    "github": "https://github.com/EverStarck/GoogleClone ",
+    "madeWith": ["nextjs", "emotion", "python", "flask"],
+    "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "developmentText": "{t('googleDev')}",
+    "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "lastImgs": [
+      "/projects/performace.webp",
+      "/projects/boceto1.webp",
+      "/projects/boceto2.webp",
+      "/projects/boceto3.webp"
+    ]
+  },
+  "WeatherApp": {
+    "title": "Weather App",
+    "anchor": "weatherApp",
+    "description": "{t('weatherDesc')}",
+    "url": "https://weather.everstarck.com",
+    "github": "https://github.com/EverStarck/WeatherApp",
+    "madeWith": ["Nextjs", "emotion", "figma"],
+    "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "developmentText": "{t('weatherDev')}",
+    "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "lastImgs": [
+      "/projects/performace.webp",
+      "/projects/boceto1.webp",
+      "/projects/boceto2.webp",
+      "/projects/boceto3.webp"
+    ]
+  },
+  "Yt2Img": {
+    "title": "Youtube2Image",
+    "anchor": "youtube2Image",
+    "description": "{t('yt2Desc')}",
+    "url": "https://yt2img.everstarck.com",
+    "github": "https://github.com/EverStarck/YouTube2Image",
+    "madeWith": ["nextjs", "emotion", "python", "flask"],
+    "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "developmentText": "{t('yt2Dev')}",
+    "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "lastImgs": [
+      "/projects/performace.webp",
+      "/projects/boceto1.webp",
+      "/projects/boceto2.webp",
+      "/projects/boceto3.webp"
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import DataProvider, { DataContext } from "../context/DataContext";
 
 import IzqFrame from "./ItemsIzq/IzqFrame";
 import Nav from "./Nav/Nav";
@@ -12,7 +13,9 @@ const AllFrame = styled.div`
 const Main = () => {
   return (
     <AllFrame>
-      <IzqFrame />
+      <DataProvider>
+        <IzqFrame />
+      </DataProvider>
       <Nav />
     </AllFrame>
   );

@@ -1,0 +1,15 @@
+{
+  "visitSite": "Visite site",
+
+  "weatherDesc": "🔎 Get the latest weather information for today and the next 5 days and also enjoy beautiful images of it!",
+  "weatherDev": [
+    "The wheel was not reinvented. It is one more weather application, only that Weather App provides you with images of the place you have searched for.",
+    "Initially 3 APIs were working. Then I decided to make my own way to obtain the user's IP, so that when I entered I would obtain the information of where he lives. But I decided to only use 2."
+  ],
+
+  "googleDesc": "🤯 An a functional google.com clone made from scratch",
+  "googleDev": ["", ""],
+
+  "yt2Desc": "⬇ The Tony Starck of the Youtube channel APIs",
+  "yt2Dev": ["", ""]
+}
