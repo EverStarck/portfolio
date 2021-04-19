@@ -41,7 +41,7 @@ const NavStyled = styled.nav`
   @media only screen and (max-width: 767px) {
     width: 100vw;
     padding: 50px;
-    background-color: rgba(25, 25, 25, 0.65);
+    background-color: transparent;
     border-top: 1px solid var(--white);
     border-left: none;
     .closeMenuMobil {
@@ -71,6 +71,25 @@ const MobileButtonNav = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transform: translate(19vw, 44vh);
+  .mask {
+    position: absolute;
+    width: 300vh;
+    height: 300vh;
+    background: var(--yellow);
+    border-radius: 50%;
+    transform: scale(0);
+    z-index: 2;
+  }
+`;
+
 const Nav = () => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
@@ -78,16 +97,19 @@ const Nav = () => {
   const { t } = useTranslation("common");
   let nav = useRef(null);
   let buttonMobile = useRef(null);
+  let mask = useRef(null);
 
   const closeNav = () => {
-    gsap.to(nav, { width: 0, height: 0, y: '97vh', opacity: 0, duration: 0.7 });
+    gsap.to(nav, { width: 0, height: 0, y: "97vh", opacity: 0, duration: 0.2 });
     gsap.to(buttonMobile, { opacity: 1, duration: 0.4 });
+    gsap.to(mask, { transform: 'scale(0)', duration: 0.38 });
   };
 
   const showNav = () => {
     gsap.to(nav, { width: '100vw', height: '100%', y: 0, opacity: 1, duration: 0.7 });
-    gsap.to(buttonMobile, { opacity: 0, duration: 0.4, borderRadius:'100%' });
-  }
+    gsap.to(buttonMobile, { opacity: 0, duration: 0.4 });
+    gsap.to(mask, { transform: "scale(1)", duration: .7 });
+  };
 
   // Animation when enter to web
   useEffect(() => {
@@ -103,7 +125,14 @@ const Nav = () => {
     if (window.innerWidth > 767) {
       gsap.to(nav, { x: 0, duration: 0.7 });
     } else {
-      gsap.to(nav, { x: 0, y: '100vh', width: 0, height: 0, duration: 0, opacity: 0});
+      gsap.to(nav, {
+        x: 0,
+        y: "100vh",
+        width: 0,
+        height: 0,
+        duration: 0,
+        opacity: 0,
+      });
     }
     console.log("window.innerHeight", window.innerHeight, window.innerWidth);
   });
@@ -129,7 +158,13 @@ const Nav = () => {
         </div>
       </NavStyled>
 
-      <MobileButtonNav ref={(el) => (buttonMobile = el)} onClick={showNav}></MobileButtonNav>
+      <MobileButtonNav
+        ref={(el) => (buttonMobile = el)}
+        onClick={showNav}
+      ></MobileButtonNav>
+      <Wrapper>
+        <div className="mask" ref={(el) => (mask = el)}></div>
+      </Wrapper>
     </>
   );
 };

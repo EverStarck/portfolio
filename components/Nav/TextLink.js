@@ -20,7 +20,7 @@ const NavTexts = styled.a`
 
 const TextLink = ({
   textLink,
-  fontSize = "clamp(2rem, 5vw, 4rem)",
+  fontSize = "clamp(3rem, 5vw, 4rem)",
   changeLanguage = false,
   goTo = "/",
 }) => {
