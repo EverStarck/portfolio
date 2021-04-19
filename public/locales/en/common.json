@@ -1,4 +1,7 @@
 {
-    "h1": "Hello",
-    "button": "Change language"
+  "h1": "Hello",
+  "button": "Change language",
+  "home": "Home",
+  "about": "About",
+  "contact": "Contact"
 }

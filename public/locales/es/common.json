@@ -1,4 +1,7 @@
 {
   "h1": "Hola",
-  "button": "Cambiar idioma"
+  "button": "Cambiar language",
+  "home": "Inicio",
+  "about": "Acerca",
+  "contact": "Contacto"
 }

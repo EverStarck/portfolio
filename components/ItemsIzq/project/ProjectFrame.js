@@ -3,23 +3,18 @@ import { useEffect, useRef, useContext } from "react";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
 import styled from "@emotion/styled";
-
 import { AnimationContext } from "../../../context/AnimationContext";
+import ProjectImage from "./ProjectImage";
+import ProjectInfo from "./ProjectInfo";
 
 const StyledProject = styled.section`
-  background-color: #ccc;
-  height: 70vh;
-  width: 80%;
-  margin-bottom: 25px;
+  border: 1px solid red;
+  height: 100vh;
+  width: 90vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  .imgTest {
-    background-color: aliceblue;
-    width: 500px;
-    height: 200px;
-    cursor: pointer;
-  }
 `;
 
 const ProjectFrame = () => {
@@ -43,9 +38,11 @@ const ProjectFrame = () => {
       router.push("/projectName");
     }, 1000);
   };
+
   return (
     <StyledProject ref={(el) => (project = el)}>
-      <div className="imgTest" onClick={goToProject}></div>
+      <ProjectImage goToProject={goToProject} />
+      <ProjectInfo />
     </StyledProject>
   );
 };
