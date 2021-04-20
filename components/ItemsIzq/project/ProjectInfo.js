@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { useTranslation } from "react-i18next";
 import Button from "../../Button";
 
 const ProjectInfoStyled = styled.div`
@@ -26,19 +27,17 @@ const ProjectInfoStyled = styled.div`
   }
 `;
 
-const ProjectInfo = ({ goToProject }) => {
+const ProjectInfo = ({ goToProject, projectData }) => {
+  const { t } = useTranslation("project");
   return (
     <ProjectInfoStyled>
       <div className="projectName">
-        <h1 onClick={goToProject}>Weather App</h1>
+        <h1 onClick={goToProject}>{projectData.title}</h1>
         {/* <Button buttonText="Visit Site" />
         <Button buttonText="Github" /> */}
       </div>
       <div className="projectDescription">
-        <h2>
-          🔎 Get the latest weather information for today and the next 5 days
-          and also enjoy beautiful images of it!
-        </h2>
+        <h2>{t(projectData.description)}</h2>
       </div>
     </ProjectInfoStyled>
   );

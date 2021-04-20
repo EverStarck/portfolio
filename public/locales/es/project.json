@@ -1,0 +1,15 @@
+{
+  "visitSite": "Ir al sitio",
+
+  "weatherDesc": "🔎 ¡Obtenga la información meteorológica más reciente para hoy y los próximos 5 días y también disfrute de hermosas imágenes de la misma!",
+  "weatherDev": [
+    "No se reinvento la rueda. Es una aplicación de clima más, solamente que Weather App te proporciona imagenes del lugar que hayas buscado.",
+    "Inicialmente se trabajaban 3 APIs. Después decidi hacer por propia cuenta la forma de optener la IP del usuario, para que al entrar obtuviera la información de donde vive."
+  ],
+
+  "googleDesc": "🤯 Un clon de Google pero funcional",
+  "googleDev": ["a", "a"],
+
+  "yt2Desc": "⬇ El Tony Starck de las APIs de canales de Youtube",
+  "yt2Dev": ["a", "a"]
+}

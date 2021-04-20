@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 import ReactFullpage from "@fullpage/react-fullpage";
 
 import ProjectFrame from "./project/ProjectFrame";
+import { DataContext } from "../../context/DataContext";
 
 const IzqStyled = styled.main`
   background-color: var(--background);
@@ -18,6 +19,9 @@ const IzqStyled = styled.main`
 `;
 
 const IzqFrame = () => {
+  // Context
+  const { data } = useContext(DataContext);
+  console.log(data);
   // GSAP
   let izq = useRef(null);
   // Animation when enter to web
@@ -32,20 +36,17 @@ const IzqFrame = () => {
         navigationPosition="left"
         render={() => (
           <ReactFullpage.Wrapper>
-            <div className="section" data-anchor="slide1">
-              <ProjectFrame />
-            </div>
-            <div className="section" data-anchor="slide2">
-              <ProjectFrame />
-            </div>
-            <div className="section" data-anchor="slide3">
-              <ProjectFrame />
-            </div>
-            <div className="section" data-anchor="slide4">
-              <ProjectFrame />
-            </div>
+            {data.map((projectData) => (
+              <div
+                className="section"
+                data-anchor={projectData.anchor}
+                key={projectData.title}
+              >
+                <ProjectFrame projectData={projectData}/>
+              </div>
+            ))}
             <div className="section" data-anchor="slide5">
-              <ProjectFrame />
+              <h1>Contacto</h1>
             </div>
           </ReactFullpage.Wrapper>
         )}

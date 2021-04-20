@@ -7,7 +7,7 @@ const DataProvider = ({ children }) => {
   const [data, setData] = useState([]);
 
   function mountData() {
-    setData([projects]);
+    setData(projects);
   }
 
   useEffect(() => {

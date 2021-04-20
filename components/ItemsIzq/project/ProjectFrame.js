@@ -24,7 +24,7 @@ const StyledProject = styled.section`
   }
 `;
 
-const ProjectFrame = () => {
+const ProjectFrame = ({projectData}) => {
   const router = useRouter();
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
@@ -42,15 +42,15 @@ const ProjectFrame = () => {
     gsap.to(project, { opacity: 0, duration: 1, delay: 0.5 });
 
     setTimeout(() => {
-      router.push("/projectName");
+      router.push(`/${projectData.anchor}`);
     }, 1000);
   };
 
   return (
     <StyledProject ref={(el) => (project = el)}>
       <div className="projectCointaner">
-        <ProjectImage goToProject={goToProject} />
-        <ProjectInfo goToProject={goToProject}/>
+        <ProjectImage goToProject={goToProject} projectData={projectData}/>
+        <ProjectInfo goToProject={goToProject} projectData={projectData}/>
       </div>
     </StyledProject>
   );

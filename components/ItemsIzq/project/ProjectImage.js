@@ -14,11 +14,11 @@ const ProjectImageStyled = styled.div`
   }
 `;
 
-const ProjectImage = ({ goToProject }) => {
+const ProjectImage = ({ goToProject,projectData }) => {
   return (
     <ProjectImageStyled onClick={goToProject}>
       <Image
-        src="/projects/weatherAppCover.png"
+        src={projectData.image}
         alt="Project screenshot"
         // layout="fill"
         // object-fit="cover"
