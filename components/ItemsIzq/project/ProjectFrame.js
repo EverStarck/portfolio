@@ -43,11 +43,22 @@ const ProjectFrame = ({ projectData }) => {
     });
 
     // Animation when click on one project
-    gsap.to(project, { opacity: 0, duration: 1, delay: 0.5 });
+    if (window.innerWidth > 767) {
+      gsap.to(project, { opacity: 0, duration: 1, delay: 0.5 });
+    } else {
+      gsap.to(project, { opacity: 0, duration: 0.5 });
+    }
 
-    setTimeout(() => {
-      router.push(`/${projectData.anchor}`);
-    }, 1000);
+    // Wait end the animation to redirect at project link
+    if (window.innerWidth > 767) {
+      setTimeout(() => {
+        router.push(`/${projectData.anchor}`);
+      }, 1000);
+    } else {
+      setTimeout(() => {
+        router.push(`/${projectData.anchor}`);
+      }, 500);
+    }
   };
 
   // Hide the all the projects when click the heart

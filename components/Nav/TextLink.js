@@ -4,9 +4,6 @@ import { useRouter } from "next/router";
 
 const NavTexts = styled.a`
   cursor: pointer;
-  :target {
-    color: red;
-  }
   .NavLinkSpan {
     color: var(--white);
     font-size: ${(props) => props.fontSize};
