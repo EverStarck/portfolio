@@ -46,6 +46,7 @@ const ThanksButton = () => {
     setAnimationReady({
       ...animationReady,
       heartClick: true,
+      heartClickLeave: false,
     });
     // Animation
     gsap.to(heartText, { opacity: 0, duration: 0.3 });
@@ -59,7 +60,7 @@ const ThanksButton = () => {
     });
 
     setTimeout(() => {
-        router.push("/thanks");
+      router.push("/thanks");
     }, 1300);
   };
 

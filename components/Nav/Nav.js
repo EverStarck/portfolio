@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import styled from "@emotion/styled";
 
@@ -95,6 +96,8 @@ const Nav = () => {
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   // Translate
   const { t } = useTranslation("common");
+  const router = useRouter();
+
   let nav = useRef(null);
   let buttonMobile = useRef(null);
   let mask = useRef(null);
@@ -149,11 +152,22 @@ const Nav = () => {
       gsap.to(nav, { x: 900, duration: 1 });
     }
 
-    // Hide nave when click the heart
-    if (animationReady.heartClick) {
+    // Hide nav when click the heart (but show when leave)
+    if (animationReady.heartClick && !animationReady.heartClickLeave) {
       gsap.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
   }, [animationReady]);
+
+  // Check if leave the heart with the browser button
+  useEffect(() => {
+    if (animationReady.heartClick && router.pathname === "/") {
+      gsap.to(nav, { opacity: 1, duration: 0.4, delay: 0.3 });
+      setAnimationReady({
+        ...animationReady,
+        heartClick: false,
+      });
+    }
+  }, []);
 
   return (
     <>

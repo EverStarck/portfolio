@@ -3,5 +3,8 @@
   "button": "Cambiar language",
   "home": "Inicio",
   "about": "Acerca",
-  "contact": "Contacto"
+  "contact": "Contacto",
+  "thanks": "Gracias!",
+  "thanksText1": "Eres la persona numero",
+  "thanksText2": "que hace click en el corazon!"
 }

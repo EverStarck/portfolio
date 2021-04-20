@@ -53,9 +53,20 @@ const ProjectFrame = ({ projectData }) => {
   // Hide the all the projects when click the heart
   useEffect(() => {
     if (animationReady.heartClick) {
-      gsap.to(project, { opacity: 0, duration: .4, delay: 0.3});
+      gsap.to(project, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
   }, [animationReady]);
+
+  // Check if leave the heart with the browser button
+  useEffect(() => {
+    if (animationReady.heartClick && router.pathname === "/") {
+      gsap.to(project, { opacity: 1, duration: 0.4, delay: 0.3 });
+      setAnimationReady({
+        ...animationReady,
+        heartClick: false,
+      });
+    }
+  }, []);
 
   return (
     <>
