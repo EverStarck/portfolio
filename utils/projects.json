@@ -2,7 +2,8 @@
   {
     "title": "Google Clone",
     "anchor": "googleClone",
-    "image": "/projects/googleCover.png",
+    "image": "/projects/googleCover.webp",
+    "mobileImage": "/projects/googleMobile.webp",
     "description": "googleDesc",
     "url": "https://googl.everstarck.com",
     "github": "https://github.com/EverStarck/GoogleClone ",
@@ -20,7 +21,8 @@
   {
     "title": "Weather App",
     "anchor": "weatherApp",
-    "image": "/projects/weatherAppCover.png",
+    "image": "/projects/weatherAppCover.webp",
+    "mobileImage": "/projects/weatherMobile.webp",
     "description": "weatherDesc",
     "url": "https://weather.everstarck.com",
     "github": "https://github.com/EverStarck/WeatherApp",
@@ -38,7 +40,8 @@
   {
     "title": "Youtube2Image",
     "anchor": "youtube2Image",
-    "image": "/projects/yt2imageCover.png",
+    "image": "/projects/yt2imageCover.webp",
+    "mobileImage": "/projects/yt2imageMobile.webp",
     "description": "yt2Desc",
     "url": "https://yt2img.everstarck.com",
     "github": "https://github.com/EverStarck/YouTube2Image",

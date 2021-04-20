@@ -32,8 +32,8 @@ const IzqFrame = () => {
   return (
     <IzqStyled ref={(el) => (izq = el)}>
       <ReactFullpage
-        navigation
-        navigationPosition="left"
+        // navigation
+        // navigationPosition="left"
         render={() => (
           <ReactFullpage.Wrapper>
             {data.map((projectData) => (

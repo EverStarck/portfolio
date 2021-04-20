@@ -22,9 +22,12 @@ const StyledProject = styled.section`
     justify-content: flex-start;
     align-items: flex-start;
   }
+  @media only screen and (max-width: 767px) {
+    padding: 20px;
+  }
 `;
 
-const ProjectFrame = ({projectData}) => {
+const ProjectFrame = ({ projectData }) => {
   const router = useRouter();
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
@@ -49,8 +52,8 @@ const ProjectFrame = ({projectData}) => {
   return (
     <StyledProject ref={(el) => (project = el)}>
       <div className="projectCointaner">
-        <ProjectImage goToProject={goToProject} projectData={projectData}/>
-        <ProjectInfo goToProject={goToProject} projectData={projectData}/>
+        <ProjectImage goToProject={goToProject} projectData={projectData} />
+        <ProjectInfo goToProject={goToProject} projectData={projectData} />
       </div>
     </StyledProject>
   );
