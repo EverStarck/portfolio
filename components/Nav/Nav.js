@@ -102,13 +102,19 @@ const Nav = () => {
   const closeNav = () => {
     gsap.to(nav, { width: 0, height: 0, y: "97vh", opacity: 0, duration: 0.2 });
     gsap.to(buttonMobile, { opacity: 1, duration: 0.4 });
-    gsap.to(mask, { transform: 'scale(0)', duration: 0.38 });
+    gsap.to(mask, { transform: "scale(0)", duration: 0.38 });
   };
 
   const showNav = () => {
-    gsap.to(nav, { width: '100vw', height: '100%', y: 0, opacity: 1, duration: 0.7 });
+    gsap.to(nav, {
+      width: "100vw",
+      height: "100%",
+      y: 0,
+      opacity: 1,
+      duration: 0.7,
+    });
     gsap.to(buttonMobile, { opacity: 0, duration: 0.4 });
-    gsap.to(mask, { transform: "scale(1)", duration: .7 });
+    gsap.to(mask, { transform: "scale(1)", duration: 0.7 });
   };
 
   // Animation when enter to web
@@ -137,10 +143,15 @@ const Nav = () => {
     console.log("window.innerHeight", window.innerHeight, window.innerWidth);
   });
 
-  // Animation when click on one project (Hide the nav)
   useEffect(() => {
+    // Animation when click on one project (Hide the nav)
     if (window.innerWidth > 767 && animationReady.projectClick) {
       gsap.to(nav, { x: 900, duration: 1 });
+    }
+
+    // Hide nave when click the heart
+    if (animationReady.heartClick) {
+      gsap.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
   }, [animationReady]);
 

@@ -7,6 +7,7 @@ const AnimationProvider = ({ children }) => {
     firstTime: false,
     homeExit: false, //if is false dont allow go to route
     projectClick: false, // De momento es la unica que tiene funcionalidad bien. Al hacer un click a un proyecto puedo hacer animaciones en otro componente
+    heartClick: false,
   });
   return (
     <AnimationContext.Provider value={{ animationReady, setAnimationReady }}>

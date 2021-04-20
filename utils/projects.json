@@ -16,7 +16,8 @@
       "/projects/boceto1.webp",
       "/projects/boceto2.webp",
       "/projects/boceto3.webp"
-    ]
+    ],
+    "thxButton": true
   },
   {
     "title": "Weather App",
@@ -35,7 +36,8 @@
       "/projects/boceto1.webp",
       "/projects/boceto2.webp",
       "/projects/boceto3.webp"
-    ]
+    ],
+    "thxButton": false
   },
   {
     "title": "Youtube2Image",
@@ -54,6 +56,7 @@
       "/projects/boceto1.webp",
       "/projects/boceto2.webp",
       "/projects/boceto3.webp"
-    ]
+    ],
+    "thxButton": false
   }
 ]

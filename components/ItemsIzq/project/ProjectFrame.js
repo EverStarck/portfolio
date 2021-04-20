@@ -6,6 +6,7 @@ import styled from "@emotion/styled";
 import { AnimationContext } from "../../../context/AnimationContext";
 import ProjectImage from "./ProjectImage";
 import ProjectInfo from "./ProjectInfo";
+import ThanksButton from "../../Thanks/ThanksButton";
 
 const StyledProject = styled.section`
   border: 1px solid red;
@@ -49,13 +50,23 @@ const ProjectFrame = ({ projectData }) => {
     }, 1000);
   };
 
+  // Hide the all the projects when click the heart
+  useEffect(() => {
+    if (animationReady.heartClick) {
+      gsap.to(project, { opacity: 0, duration: .4, delay: 0.3});
+    }
+  }, [animationReady]);
+
   return (
-    <StyledProject ref={(el) => (project = el)}>
-      <div className="projectCointaner">
-        <ProjectImage goToProject={goToProject} projectData={projectData} />
-        <ProjectInfo goToProject={goToProject} projectData={projectData} />
-      </div>
-    </StyledProject>
+    <>
+      {projectData.thxButton && <ThanksButton />}
+      <StyledProject ref={(el) => (project = el)}>
+        <div className="projectCointaner">
+          <ProjectImage goToProject={goToProject} projectData={projectData} />
+          <ProjectInfo goToProject={goToProject} projectData={projectData} />
+        </div>
+      </StyledProject>
+    </>
   );
 };
 
