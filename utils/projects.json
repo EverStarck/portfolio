@@ -27,10 +27,10 @@
     "description": "weatherDesc",
     "url": "https://weather.everstarck.com",
     "github": "https://github.com/EverStarck/WeatherApp",
-    "madeWith": ["Nextjs", "emotion", "figma"],
+    "madeWith": ["nextjs", "emotion", "figma"],
     "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
     "developmentText": "weatherDev",
-    "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "developmentImg": ["/projects/weatherMobil.png", "/projects/weatherPC.png"],
     "lastImgs": [
       "/projects/performance.webp",
       "/projects/boceto1.webp",

@@ -12,6 +12,8 @@ const ProjectImageStyled = styled.div`
   }
   @media only screen and (max-width: 767px) {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 `;
 

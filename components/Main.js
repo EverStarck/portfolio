@@ -13,9 +13,9 @@ const AllFrame = styled.div`
 const Main = () => {
   return (
     <AllFrame>
-      <DataProvider>
-        <IzqFrame />
-      </DataProvider>
+      {/* <DataProvider> */}
+      <IzqFrame />
+      {/* </DataProvider> */}
       <Nav />
     </AllFrame>
   );
