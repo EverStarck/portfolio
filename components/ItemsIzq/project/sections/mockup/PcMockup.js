@@ -36,7 +36,7 @@ const PcMockup = ({data}) => {
       <div className="pcGlass">
         <Image
           src="/assets/pcGlass.webp"
-          alt="Picture of the author"
+          alt="Picture of computer screen reflection"
           width={865}
           height={495}
         />
@@ -44,7 +44,7 @@ const PcMockup = ({data}) => {
       <div className="imgBackground">
         <Image
           src={data.developmentImg[1]}
-          alt="Picture of the author"
+          alt={`Picture of ${data.title} website`}
           width={865}
           height={495}
         />
@@ -52,7 +52,7 @@ const PcMockup = ({data}) => {
       <div className="pcMockup">
         <Image
           src="/assets/PC.webp"
-          alt="Picture of the author"
+          alt="Picture of computer mockup"
           width={872}
           height={652}
         />

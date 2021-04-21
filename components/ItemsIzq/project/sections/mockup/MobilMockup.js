@@ -44,7 +44,7 @@ const MobilMockup = ({ data }) => {
         <div className="mobilGlass">
           <Image
             src="/assets/mobilGlass.webp"
-            alt="Picture of the author"
+            alt="Picture of mobile glass refection"
             width={171}
             height={383}
           />
@@ -52,7 +52,7 @@ const MobilMockup = ({ data }) => {
         <div className="imgBackgroundMobil">
           <Image
             src={data.developmentImg[0]}
-            alt="Picture of the author"
+            alt={`Picture of ${data.title} website`}
             width={235}
             height={483}
           />
@@ -60,7 +60,7 @@ const MobilMockup = ({ data }) => {
         <div className="mobilMockup">
           <Image
             src="/assets/mobil.webp"
-            alt="Picture of the author"
+            alt="Picture of mobile mockup"
             width={250}
             height={535}
           />
