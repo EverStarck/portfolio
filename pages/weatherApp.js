@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import DataProvider, { DataContext } from "../context/DataContext";
+import { DataContext } from "../context/DataContext";
 import Hero from "../components/ItemsIzq/project/sections/Hero";
 import Mockups from "../components/ItemsIzq/project/sections/Mockups";
 import Development from "../components/ItemsIzq/project/sections/Development";
@@ -14,7 +14,7 @@ const WeatherApp = () => {
         <h1>Loading</h1>
       ) : (
         <>
-          {/* <Hero /> */}
+          <Hero data={data[1]} />
           <Mockups data={data[1]} />
           <Development />
           <Bocets />

@@ -1,23 +1,19 @@
 import styled from "@emotion/styled";
-import { useContext } from "react";
-import { DataContext } from "../../../../context/DataContext";
 import ProjectImage from "../ProjectImage";
 import ProjectInfo from "../ProjectInfo";
 
-const HeroFrame = styled.main`
+const HeroFrame = styled.section`
   max-width: 100vw;
   height: 100vh;
   border: 1px solid red;
+  scroll-snap-align: start;
 `;
 
-const Hero = () => {
-  // Context
-  const { data } = useContext(DataContext);
-  console.log(data[0]);
+const Hero = ({ data }) => {
   return (
     <HeroFrame>
-      <ProjectImage projectData={data[0]} />
-      <ProjectInfo projectData={data[0]} />
+      <ProjectImage projectData={data} />
+      <ProjectInfo projectData={data} />
     </HeroFrame>
   );
 };

@@ -3,15 +3,12 @@ import MadeWith from "./mockup/MadeWith";
 import MobilMockup from "./mockup/MobilMockup";
 import PcMockup from "./mockup/PcMockup";
 
-const MockupsFrame = styled.main`
+const MockupsFrame = styled.section`
   max-width: 100vw;
   height: 100%;
   background-color: var(--white);
   min-height: 100vh;
-  .madeWith {
-    /* position: absolute;
-    top: 20px; */
-  }
+  scroll-snap-align: start;
   .mockupContainer {
     display: flex;
     justify-content: center;
@@ -31,15 +28,13 @@ const MockupsFrame = styled.main`
     }
   }
 `;
-const Mockups = ({data}) => {
+const Mockups = ({ data }) => {
   return (
     <MockupsFrame>
-      <div className="madeWith">
-        <MadeWith data={data}/>
-      </div>
+      <MadeWith data={data} />
       <div className="mockupContainer">
-        <MobilMockup data={data}/>
-        <PcMockup data={data}/>
+        <MobilMockup data={data} />
+        <PcMockup data={data} />
       </div>
     </MockupsFrame>
   );
