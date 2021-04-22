@@ -1,5 +1,7 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
+import H2 from "../../../../H2";
 
 const MadeWithFrame = styled.section`
   display: flex;
@@ -8,12 +10,6 @@ const MadeWithFrame = styled.section`
   align-items: center;
   margin-bottom: 50px;
   padding-top: 50px;
-  h1 {
-    color: var(--blue);
-    margin: 0;
-    font-weight: bold;
-    font-size: clamp(1.6rem, 5vw, 2.125rem);
-  }
   .allLogoFrame {
     width: 90%;
     display: flex;
@@ -39,16 +35,16 @@ const MadeWithFrame = styled.section`
 `;
 
 const MadeWith = ({ data }) => {
-  console.log(data);
+  const { t } = useTranslation("project");
 
   return (
     <MadeWithFrame>
-      <h1>Made With</h1>
+      <H2 h2Text={t("madeWith")} h2FontSize="clamp(1.6rem, 5vw, 2.125rem)" />
       <div className="allLogoFrame">
         {data.madeWith.map((tecUsed) => {
           if (tecUsed === "nextjs") {
             return (
-              <div className="logoFrame">
+              <div className="logoFrame" key={tecUsed}>
                 <Image
                   src="/assets/icons/nextjs.svg"
                   alt="Picture of nextjs logo"
@@ -61,7 +57,7 @@ const MadeWith = ({ data }) => {
           }
           if (tecUsed === "emotion") {
             return (
-              <div className="logoFrame">
+              <div className="logoFrame" key={tecUsed}>
                 <Image
                   src="/assets/icons/emotion.png"
                   alt="Picture of emotionJs logo"
@@ -74,7 +70,7 @@ const MadeWith = ({ data }) => {
           }
           if (tecUsed === "figma") {
             return (
-              <div className="logoFrame">
+              <div className="logoFrame" key={tecUsed}>
                 <Image
                   src="/assets/icons/figma.svg"
                   alt="Picture of Figma logo"
@@ -87,7 +83,7 @@ const MadeWith = ({ data }) => {
           }
           if (tecUsed === "python") {
             return (
-              <div className="logoFrame">
+              <div className="logoFrame" key={tecUsed}>
                 <Image
                   src="/assets/icons/python.svg"
                   alt="Picture of Python logo"
@@ -100,7 +96,7 @@ const MadeWith = ({ data }) => {
           }
           if (tecUsed === "flask") {
             return (
-              <div className="logoFrame">
+              <div className="logoFrame" key={tecUsed}>
                 <Image
                   src="/assets/icons/flask.svg"
                   alt="Picture of Flask logo"

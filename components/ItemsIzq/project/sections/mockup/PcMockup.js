@@ -43,7 +43,7 @@ const PcMockup = ({data}) => {
       </div>
       <div className="imgBackground">
         <Image
-          src={data.developmentImg[1]}
+          src={data.screenShots[1]}
           alt={`Picture of ${data.title} website`}
           width={865}
           height={495}

@@ -9,7 +9,7 @@
     "github": "https://github.com/EverStarck/GoogleClone ",
     "madeWith": ["nextjs", "emotion", "python", "flask"],
     "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
-    "developmentText": "googleDev",
+    "developmentText": ["googleDev1", "googleDev2"],
     "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
     "lastImgs": [
       "/projects/performance.webp",
@@ -28,9 +28,9 @@
     "url": "https://weather.everstarck.com",
     "github": "https://github.com/EverStarck/WeatherApp",
     "madeWith": ["nextjs", "emotion", "figma"],
-    "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
-    "developmentText": "weatherDev",
-    "developmentImg": ["/projects/weatherMobil.png", "/projects/weatherPC.png"],
+    "screenShots": ["/projects/weatherMobil.png", "/projects/weatherPC.png"],
+    "developmentText": ["weatherDev1", "weatherDev2"],
+    "developmentImg": "/projects/weatherDesigns.png",
     "lastImgs": [
       "/projects/performance.webp",
       "/projects/boceto1.webp",
@@ -49,7 +49,7 @@
     "github": "https://github.com/EverStarck/YouTube2Image",
     "madeWith": ["nextjs", "emotion", "python", "flask"],
     "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
-    "developmentText": "yt2Dev",
+    "developmentText": ["yt2Dev1", "yt2Dev2"],
     "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
     "lastImgs": [
       "/projects/performance.webp",

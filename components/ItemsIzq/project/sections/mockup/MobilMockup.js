@@ -51,7 +51,7 @@ const MobilMockup = ({ data }) => {
         </div>
         <div className="imgBackgroundMobil">
           <Image
-            src={data.developmentImg[0]}
+            src={data.screenShots[0]}
             alt={`Picture of ${data.title} website`}
             width={235}
             height={483}

@@ -7,6 +7,9 @@ const HeroFrame = styled.section`
   height: 100vh;
   border: 1px solid red;
   scroll-snap-align: start;
+  @media only screen and (max-width: 767px) {
+    scroll-snap-align: unset;
+  }
 `;
 
 const Hero = ({ data }) => {

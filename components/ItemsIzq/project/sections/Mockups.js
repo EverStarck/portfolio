@@ -4,8 +4,6 @@ import MobilMockup from "./mockup/MobilMockup";
 import PcMockup from "./mockup/PcMockup";
 
 const MockupsFrame = styled.section`
-  max-width: 100vw;
-  height: 100%;
   background-color: var(--white);
   min-height: 100vh;
   scroll-snap-align: start;
@@ -15,6 +13,7 @@ const MockupsFrame = styled.section`
     align-items: center;
   }
   @media only screen and (max-width: 767px) {
+    scroll-snap-align: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
