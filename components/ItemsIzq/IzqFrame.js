@@ -10,10 +10,10 @@ import ThanksButton from "../Thanks/ThanksButton";
 
 const IzqStyled = styled.main`
   background-color: var(--background);
-  opacity: 0;
   width: 70vw;
   height: 100%;
   min-height: 200vh;
+  opacity: 0;
   @media only screen and (max-width: 767px) {
     width: 100vw;
   }
@@ -22,14 +22,13 @@ const IzqStyled = styled.main`
 const IzqFrame = () => {
   // Context
   const { data } = useContext(DataContext);
-  console.log(data);
-  // GSAP
   let izq = useRef(null);
+
   // Animation when enter to web
   useEffect(() => {
-    // let tl = gsap.timeline({ defaults: { duration: 0.7 } });
-    gsap.to(izq, { opacity: 1, duration: 0.7 });
-  });
+    alert("izq")
+    gsap.to(izq, { opacity: 1, duration: 1.5 });
+  }, []);
   return (
     <IzqStyled ref={(el) => (izq = el)}>
       <ReactFullpage

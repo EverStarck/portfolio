@@ -67,18 +67,14 @@ const Thanks = () => {
   const { t } = useTranslation("common");
   let heartText = useRef(null);
 
-  const goBackHeart = () => {
-    setAnimationReady({
-      ...animationReady,
-      heartClick: false,
-      heartClickLeave: true,
-    });
-  };
-
   useEffect(() => {
     gsap.to(heartText, {
       opacity: 1,
       duration: 0.4,
+    });
+    setAnimationReady({
+      ...animationReady,
+      heartClick: false,
     });
   }, []);
 
@@ -91,9 +87,7 @@ const Thanks = () => {
           {t("thanksText1")} <strong>401</strong> {t("thanksText2")}
         </h2>
         <Link href="/">
-          <a className="goBackHeart" onClick={goBackHeart}>
-            ←
-          </a>
+          <a className="goBackHeart">←</a>
         </Link>
       </div>
     </ThanksPage>

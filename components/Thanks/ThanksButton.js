@@ -25,6 +25,7 @@ const ThanksFrame = styled.div`
     display: inline-block;
   }
   @media only screen and (max-width: 767px) {
+    top: 56px;
     left: 20px;
     p {
       margin-left: 0px;

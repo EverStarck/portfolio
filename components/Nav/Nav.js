@@ -7,13 +7,12 @@ import styled from "@emotion/styled";
 import { AnimationContext } from "../../context/AnimationContext";
 
 import TextLink from "./TextLink";
+import ButtonNav from "./ButtonNav";
 
 const NavStyled = styled.nav`
   height: 100%;
-  /* width: 465px; */
   width: 30vw;
-  /* width: 0px; */
-  transform: translateX(900px);
+  transform: translate(500%);
   position: fixed;
   z-index: 2;
   top: 0;
@@ -73,7 +72,8 @@ const MobileButtonNav = styled.div`
 `;
 
 const Wrapper = styled.div`
-  display: flex;
+  display: ${(props) => (props.isOnNav ? "flex" : "none")};
+  /* display: flex; */
   position: relative;
   flex-direction: column;
   justify-content: center;
@@ -82,7 +82,7 @@ const Wrapper = styled.div`
   transform: translate(19vw, 44vh);
   .mask {
     position: absolute;
-    width: 300vh;
+    width: 400vh;
     height: 300vh;
     background: var(--yellow);
     border-radius: 50%;
@@ -91,7 +91,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Nav = () => {
+const Nav = ({ isOnNav }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   // Translate
@@ -101,6 +101,7 @@ const Nav = () => {
   let nav = useRef(null);
   let buttonMobile = useRef(null);
   let mask = useRef(null);
+  let tl = gsap.timeline({ defaults: { duration: 0.7 } });
 
   const closeNav = () => {
     gsap.to(nav, { width: 0, height: 0, y: "97vh", opacity: 0, duration: 0.2 });
@@ -109,6 +110,7 @@ const Nav = () => {
   };
 
   const showNav = () => {
+    alert("show");
     gsap.to(nav, {
       width: "100vw",
       height: "100%",
@@ -122,56 +124,64 @@ const Nav = () => {
 
   // Animation when enter to web
   useEffect(() => {
-    // if (!animationReady.firstTime) {
-    //   // gsap.to(nav, { width: 465, duration: 0.7 });
-    //   gsap.to(nav, { x: 0, duration: 0.7 });
-
-    //   setAnimationReady({
-    //     ...animationReady,
-    //     firstTime: true,
+    // if (window.innerWidth > 767) {
+    //   gsap.to(nav, { xPercent: 0, duration: 0.7 });
+    // } else {
+    //   // Mobile
+    //   gsap.to(nav, {
+    //     xPercent: 0,
+    //     y: "100vh",
+    //     width: 0,
+    //     height: 0,
+    //     duration: 0,
+    //     opacity: 0,
     //   });
     // }
-    if (window.innerWidth > 767) {
-      gsap.to(nav, { x: 0, duration: 0.7 });
-    } else {
-      gsap.to(nav, {
-        x: 0,
-        y: "100vh",
-        width: 0,
-        height: 0,
-        duration: 0,
-        opacity: 0,
+    // Change click on project to false when go home
+    setAnimationReady({
+      ...animationReady,
+      projectClick: false,
+    });
+
+    // Deskotp. Show the nav animation to left just in home
+    if (window.innerWidth > 767 && isOnNav) {
+      tl.to(nav, { x: 0, xPercent: 0 });
+      setAnimationReady({
+        ...animationReady,
+        navFirstAnimation: true,
       });
     }
     console.log("window.innerHeight", window.innerHeight, window.innerWidth);
-  });
+  }, []);
 
   useEffect(() => {
     // Animation when click on one project (Hide the nav)
     if (window.innerWidth > 767 && animationReady.projectClick) {
-      gsap.to(nav, { x: 900, duration: 1 });
+      tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
     }
-
     // Hide nav when click the heart (but show when leave)
-    if (animationReady.heartClick && !animationReady.heartClickLeave) {
-      gsap.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
+    if (animationReady.heartClick) {
+      alert("2");
+      tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
+    }
+    // Move the nav to left when click the nav button
+    if (animationReady.navButton && animationReady.navFirstAnimation) {
+      tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
+    }
+    // Move the nav to right when click the nav button
+    else if (
+      !animationReady.navButton &&
+      animationReady.navFirstAnimation &&
+      !isOnNav
+    ) {
+      // alert("4");
+      tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
     }
   }, [animationReady]);
 
-  // Check if leave the heart with the browser button
-  useEffect(() => {
-    if (animationReady.heartClick && router.pathname === "/") {
-      gsap.to(nav, { opacity: 1, duration: 0.4, delay: 0.3 });
-      setAnimationReady({
-        ...animationReady,
-        heartClick: false,
-      });
-    }
-  }, []);
-
   return (
     <>
-      <NavStyled ref={(el) => (nav = el)}>
+      <NavStyled ref={(el) => (nav = el)} isOnNav={isOnNav}>
         <button className="closeMenuMobil" onClick={closeNav}>
           Close
         </button>
@@ -183,11 +193,17 @@ const Nav = () => {
         </div>
       </NavStyled>
 
-      <MobileButtonNav
+      <ButtonNav
+        isOnNav={isOnNav}
         ref={(el) => (buttonMobile = el)}
         onClick={showNav}
-      ></MobileButtonNav>
-      <Wrapper>
+      />
+
+      {/* <MobileButtonNav
+        ref={(el) => (buttonMobile = el)}
+        onClick={showNav}
+      ></MobileButtonNav> */}
+      <Wrapper isOnNav={isOnNav}>
         <div className="mask" ref={(el) => (mask = el)}></div>
       </Wrapper>
     </>

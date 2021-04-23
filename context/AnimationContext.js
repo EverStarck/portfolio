@@ -8,7 +8,8 @@ const AnimationProvider = ({ children }) => {
     homeExit: false, //if is false dont allow go to route
     projectClick: false, // De momento es la unica que tiene funcionalidad bien. Al hacer un click a un proyecto puedo hacer animaciones en otro componente
     heartClick: false, // Make click in the home
-    heartClickLeave: false, // Leave in back arrow (Avoid projects and nav with opacity 1)
+    navFirstAnimation: false, //The first nav animation (when enter to left) is alredy done
+    navButton: false, // Show the nav when you clicked (works in project screen)
   });
   return (
     <AnimationContext.Provider value={{ animationReady, setAnimationReady }}>
