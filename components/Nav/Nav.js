@@ -1,6 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { useRouter } from "next/router";
 import { gsap } from "gsap";
 import styled from "@emotion/styled";
 
@@ -44,6 +43,7 @@ const NavStyled = styled.nav`
     background-color: transparent;
     border-top: 1px solid var(--white);
     border-left: none;
+    z-index: 10;
     .closeMenuMobil {
       display: inline-block;
       position: absolute;
@@ -58,31 +58,18 @@ const NavStyled = styled.nav`
   }
 `;
 
-const MobileButtonNav = styled.div`
-  width: 60px;
-  height: 60px;
-  background-color: var(--yellow);
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  border-radius: 50%;
-  @media only screen and (min-width: 767px) {
-    display: none;
-  }
-`;
-
 const Wrapper = styled.div`
-  display: ${(props) => (props.isOnNav ? "flex" : "none")};
-  /* display: flex; */
-  position: relative;
+  display: flex;
+  position: fixed;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  transform: translate(19vw, 44vh);
+  transform: translate(90vw, 45vh);
+  z-index: 9;
   .mask {
     position: absolute;
-    width: 400vh;
+    width: 300vh;
     height: 300vh;
     background: var(--yellow);
     border-radius: 50%;
@@ -96,47 +83,26 @@ const Nav = ({ isOnNav }) => {
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   // Translate
   const { t } = useTranslation("common");
-  const router = useRouter();
 
   let nav = useRef(null);
-  let buttonMobile = useRef(null);
   let mask = useRef(null);
+  let wrapper = useRef(null);
   let tl = gsap.timeline({ defaults: { duration: 0.7 } });
 
   const closeNav = () => {
-    gsap.to(nav, { width: 0, height: 0, y: "97vh", opacity: 0, duration: 0.2 });
-    gsap.to(buttonMobile, { opacity: 1, duration: 0.4 });
-    gsap.to(mask, { transform: "scale(0)", duration: 0.38 });
+    tl.to(nav, { xPercent: 500 });
+    tl.to(mask, { transform: "scale(0)" }, "-=.8");
+    // tl.to(wrapper, { display: "none" }, "-=1");
   };
 
   const showNav = () => {
-    alert("show");
-    gsap.to(nav, {
-      width: "100vw",
-      height: "100%",
-      y: 0,
-      opacity: 1,
-      duration: 0.7,
-    });
-    gsap.to(buttonMobile, { opacity: 0, duration: 0.4 });
-    gsap.to(mask, { transform: "scale(1)", duration: 0.7 });
+    tl.to(mask, { transform: "scale(1)" });
+    tl.to(nav, { x: 0, xPercent: 0, duration: 0.5 }, "-=.6");
+    // tl.to(wrapper, { display: "flex" }, "-=1");
   };
 
   // Animation when enter to web
   useEffect(() => {
-    // if (window.innerWidth > 767) {
-    //   gsap.to(nav, { xPercent: 0, duration: 0.7 });
-    // } else {
-    //   // Mobile
-    //   gsap.to(nav, {
-    //     xPercent: 0,
-    //     y: "100vh",
-    //     width: 0,
-    //     height: 0,
-    //     duration: 0,
-    //     opacity: 0,
-    //   });
-    // }
     // Change click on project to false when go home
     setAnimationReady({
       ...animationReady,
@@ -161,7 +127,6 @@ const Nav = ({ isOnNav }) => {
     }
     // Hide nav when click the heart (but show when leave)
     if (animationReady.heartClick) {
-      alert("2");
       tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
     // Move the nav to left when click the nav button
@@ -174,7 +139,6 @@ const Nav = ({ isOnNav }) => {
       animationReady.navFirstAnimation &&
       !isOnNav
     ) {
-      // alert("4");
       tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
     }
   }, [animationReady]);
@@ -193,17 +157,9 @@ const Nav = ({ isOnNav }) => {
         </div>
       </NavStyled>
 
-      <ButtonNav
-        isOnNav={isOnNav}
-        ref={(el) => (buttonMobile = el)}
-        onClick={showNav}
-      />
+      <ButtonNav isOnNav={isOnNav} showNav={showNav} />
 
-      {/* <MobileButtonNav
-        ref={(el) => (buttonMobile = el)}
-        onClick={showNav}
-      ></MobileButtonNav> */}
-      <Wrapper isOnNav={isOnNav}>
+      <Wrapper ref={(el) => (wrapper = el)}>
         <div className="mask" ref={(el) => (mask = el)}></div>
       </Wrapper>
     </>

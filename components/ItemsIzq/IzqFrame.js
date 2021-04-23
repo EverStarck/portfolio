@@ -26,7 +26,7 @@ const IzqFrame = () => {
 
   // Animation when enter to web
   useEffect(() => {
-    alert("izq")
+    // alert("izq")
     gsap.to(izq, { opacity: 1, duration: 1.5 });
   }, []);
   return (
