@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { useEffect, useRef, useContext } from "react";
 import { gsap } from "gsap";
 import { useRouter } from "next/router";
@@ -29,10 +28,9 @@ const StyledProject = styled.section`
 `;
 
 const ProjectFrame = ({ projectData }) => {
-  const router = useRouter();
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
-
+  const router = useRouter();
   // GSAP
   let project = useRef(null);
 
@@ -61,6 +59,17 @@ const ProjectFrame = ({ projectData }) => {
     }
   };
 
+  // Change the x and y position to move image
+  function onMouseMove(e) {
+    setAnimationReady({
+      ...animationReady,
+      moveImg: {
+        x: e.clientX,
+        y: e.clientY,
+      },
+    });
+  }
+
   // Hide the all the projects when click the heart
   useEffect(() => {
     if (animationReady.heartClick) {
@@ -78,13 +87,16 @@ const ProjectFrame = ({ projectData }) => {
       });
     }
   }, []);
-
   return (
     <>
       {projectData.thxButton && <ThanksButton />}
-      <StyledProject ref={(el) => (project = el)}>
+      <StyledProject ref={(el) => (project = el)} onMouseMove={onMouseMove}>
         <div className="projectCointaner">
-          <ProjectImage goToProject={goToProject} projectData={projectData} />
+          <ProjectImage
+            goToProject={goToProject}
+            projectData={projectData}
+            move={animationReady.moveImg}
+          />
           <ProjectInfo goToProject={goToProject} projectData={projectData} />
         </div>
       </StyledProject>

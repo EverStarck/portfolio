@@ -83,22 +83,18 @@ const Nav = ({ isOnNav }) => {
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   // Translate
   const { t } = useTranslation("common");
-
   let nav = useRef(null);
   let mask = useRef(null);
-  let wrapper = useRef(null);
   let tl = gsap.timeline({ defaults: { duration: 0.7 } });
 
   const closeNav = () => {
     tl.to(nav, { xPercent: 500 });
     tl.to(mask, { transform: "scale(0)" }, "-=.8");
-    // tl.to(wrapper, { display: "none" }, "-=1");
   };
 
   const showNav = () => {
     tl.to(mask, { transform: "scale(1)" });
     tl.to(nav, { x: 0, xPercent: 0, duration: 0.5 }, "-=.6");
-    // tl.to(wrapper, { display: "flex" }, "-=1");
   };
 
   // Animation when enter to web
@@ -147,7 +143,7 @@ const Nav = ({ isOnNav }) => {
     <>
       <NavStyled ref={(el) => (nav = el)} isOnNav={isOnNav}>
         <button className="closeMenuMobil" onClick={closeNav}>
-          Close
+        {t("close")}
         </button>
         <div className="itemsNav">
           <TextLink fontSize="18px" changeLanguage />
@@ -159,7 +155,7 @@ const Nav = ({ isOnNav }) => {
 
       <ButtonNav isOnNav={isOnNav} showNav={showNav} />
 
-      <Wrapper ref={(el) => (wrapper = el)}>
+      <Wrapper>
         <div className="mask" ref={(el) => (mask = el)}></div>
       </Wrapper>
     </>
