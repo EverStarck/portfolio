@@ -6,8 +6,13 @@ import ProjectInfo from "../ProjectInfo";
 
 const HeroFrame = styled.section`
   max-width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
   scroll-snap-align: start;
   @media only screen and (max-width: 767px) {
     scroll-snap-align: unset;
@@ -29,8 +34,8 @@ const Hero = ({ data }) => {
   }
   return (
     <HeroFrame onMouseMove={onMouseMove}>
-      <ProjectImage projectData={data} />
-      <ProjectInfo projectData={data} />
+      <ProjectImage projectData={data} isOnPage={true} />
+      <ProjectInfo projectData={data} isOnPage={true} />
     </HeroFrame>
   );
 };

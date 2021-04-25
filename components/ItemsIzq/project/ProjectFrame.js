@@ -27,7 +27,7 @@ const StyledProject = styled.section`
   }
 `;
 
-const ProjectFrame = ({ projectData }) => {
+const ProjectFrame = ({ projectData, isOnPage }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const router = useRouter();
@@ -96,8 +96,13 @@ const ProjectFrame = ({ projectData }) => {
             goToProject={goToProject}
             projectData={projectData}
             move={animationReady.moveImg}
+            isOnPage={false}
           />
-          <ProjectInfo goToProject={goToProject} projectData={projectData} />
+          <ProjectInfo
+            goToProject={goToProject}
+            projectData={projectData}
+            isOnPage={false}
+          />
         </div>
       </StyledProject>
     </>
