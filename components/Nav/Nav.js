@@ -133,20 +133,16 @@ const Nav = ({ isOnNav }) => {
     if (animationReady.heartClick) {
       tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
-    // Move the nav to left when click the nav button
-    if (
-      window.innerWidth > 767 &&
-      animationReady.navButton &&
-      animationReady.navFirstAnimation
-    )
-      tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
-    // Move the nav to right when click the nav button
-    else if (
-      !animationReady.navButton &&
-      animationReady.navFirstAnimation &&
-      !isOnNav
-    ) {
-      tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
+    // Project Nav Anmations just in desktop
+    if (window.innerWidth > 767 && !isOnNav) {
+      // Move nav to left when click the nav button
+      if (animationReady.navButton && !animationReady.navClickLink) {
+        tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
+      }
+      // Move nav to right when click the nav button
+      if (!animationReady.navClickLink && !animationReady.navButton) {
+        tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
+      }
     }
   }, [animationReady]);
 
@@ -158,9 +154,13 @@ const Nav = ({ isOnNav }) => {
         </button>
         <div className="itemsNav">
           <TextLink fontSize="18px" changeLanguage />
-          <TextLink textLink={t("Home")} />
-          <TextLink textLink={t("About")} goTo="about" />
-          <TextLink textLink={t("Contact")} goTo="contact" />
+          <TextLink textLink={t("Home")} closeNav={closeNav} />
+          <TextLink textLink={t("About")} goTo="about" closeNav={closeNav} />
+          <TextLink
+            textLink={t("Contact")}
+            goTo="contact"
+            closeNav={closeNav}
+          />
         </div>
       </NavStyled>
 

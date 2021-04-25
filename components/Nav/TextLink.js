@@ -18,6 +18,7 @@ const NavTexts = styled.a`
 `;
 
 const TextLink = ({
+  closeNav,
   textLink,
   fontSize = "clamp(3rem, 5vw, 4rem)",
   changeLanguage = false,
@@ -30,16 +31,17 @@ const TextLink = ({
   const clickNavLink = () => {
     console.log(router);
     // alert(goTo);
-
     setAnimationReady({
       ...animationReady,
       navClickLink: true,
-      navButton: false,
     });
 
+    if (window.innerWidth < 767) {
+      closeNav();
+    }
     setTimeout(() => {
       router.push(goTo);
-    }, 2000);
+    }, 1000);
   };
 
   return (

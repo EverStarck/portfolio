@@ -38,11 +38,12 @@ const WeatherApp = () => {
       ...animationReady,
       projectClick: false,
       navFirstAnimation: true,
+      navClickLink: false,
     });
   }, []);
 
-  // Move the projects to left when click the nav button
   useEffect(() => {
+    // Move the projects to left when click the nav button
     if (data.length > 0 && window.innerWidth > 767) {
       if (animationReady.navButton) {
         tl.to(projectScreen, { xPercent: -30.2 });
@@ -50,6 +51,13 @@ const WeatherApp = () => {
         tl.to(projectScreen, { xPercent: 0 });
       }
     }
+
+    // Animation when click some link in project page
+    // if (animationReady.navClickLink) {
+    //   tl.to(projectScreen, { opacity: 0 });
+    // } else {
+    //   tl.to(projectScreen, { opacity: 1 });
+    // }
   }, [animationReady]);
 
   return (
@@ -61,7 +69,7 @@ const WeatherApp = () => {
           <Nav isOnNav={false} />
           <ProjectFramePage ref={(el) => (projectScreen = el)}>
             <div className="projectWidth">
-              <Hero data={data[1]}/>
+              <Hero data={data[1]} />
             </div>
             <Mockups data={data[1]} />
             <div className="projectWidth">
