@@ -105,13 +105,21 @@ const Nav = ({ isOnNav }) => {
       projectClick: false,
     });
 
-    // Deskotp. Show the nav animation to left just in home
-    if (window.innerWidth > 767 && isOnNav) {
+    // Deskotp. Show the nav animation to left just in home and when enter to web the first time
+    if (
+      window.innerWidth > 767 &&
+      isOnNav &&
+      !animationReady.navFirstAnimation
+    ) {
       tl.to(nav, { x: 0, xPercent: 0 });
       setAnimationReady({
         ...animationReady,
         navFirstAnimation: true,
       });
+    }
+    // Deskotp. Don't show animation when leave project page. The nav will be on his site.
+    if (window.innerWidth > 767 && isOnNav && animationReady.navClickLink) {
+      tl.to(nav, { x: 0, xPercent: 0, duration: 0 });
     }
     console.log("window.innerHeight", window.innerHeight, window.innerWidth);
   }, []);
@@ -126,9 +134,12 @@ const Nav = ({ isOnNav }) => {
       tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
     // Move the nav to left when click the nav button
-    if (animationReady.navButton && animationReady.navFirstAnimation) {
+    if (
+      window.innerWidth > 767 &&
+      animationReady.navButton &&
+      animationReady.navFirstAnimation
+    )
       tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
-    }
     // Move the nav to right when click the nav button
     else if (
       !animationReady.navButton &&
@@ -143,13 +154,13 @@ const Nav = ({ isOnNav }) => {
     <>
       <NavStyled ref={(el) => (nav = el)} isOnNav={isOnNav}>
         <button className="closeMenuMobil" onClick={closeNav}>
-        {t("close")}
+          {t("Close")}
         </button>
         <div className="itemsNav">
           <TextLink fontSize="18px" changeLanguage />
-          <TextLink textLink={t("home")} goTo="/" />
-          <TextLink textLink={t("about")} goTo="/about" />
-          <TextLink textLink={t("contact")} goTo="/contact" />
+          <TextLink textLink={t("Home")} />
+          <TextLink textLink={t("About")} goTo="about" />
+          <TextLink textLink={t("Contact")} goTo="contact" />
         </div>
       </NavStyled>
 

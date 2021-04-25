@@ -1,10 +1,10 @@
 {
   "h1": "Hello",
   "button": "Change language",
-  "close": "Close",
-  "home": "Home",
-  "about": "About",
-  "contact": "Contact",
+  "Close": "Close",
+  "Home": "Home",
+  "About": "About",
+  "Contact": "Contact",
   "thanks": "Thanks!",
   "thanksText1": "You are the person number",
   "thanksText2": "that make click on the heart!"

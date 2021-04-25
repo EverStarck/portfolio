@@ -1,6 +1,8 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
+import { useContext } from "react";
+import { AnimationContext } from "../../context/AnimationContext";
 
 const NavTexts = styled.a`
   cursor: pointer;
@@ -21,19 +23,39 @@ const TextLink = ({
   changeLanguage = false,
   goTo = "/",
 }) => {
+  // Context
+  const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const router = useRouter();
-  return (
-    <Link href={goTo}>
-      <NavTexts fontSize={fontSize}>
-        <span className="NavLinkSpan">{textLink}</span>
 
-        {changeLanguage && (
-          <Link href="/" locale={router.locale === "en" ? "es" : "en"}>
-            <span className="NavLinkSpan">EN/ES</span>
-          </Link>
-        )}
-      </NavTexts>
-    </Link>
+  const clickNavLink = () => {
+    console.log(router);
+    // alert(goTo);
+
+    setAnimationReady({
+      ...animationReady,
+      navClickLink: true,
+      navButton: false,
+    });
+
+    setTimeout(() => {
+      router.push(goTo);
+    }, 2000);
+  };
+
+  return (
+    // <Link href={goTo}>
+    <NavTexts fontSize={fontSize}>
+      <span className="NavLinkSpan" onClick={clickNavLink}>
+        {textLink}
+      </span>
+
+      {changeLanguage && (
+        <Link href="/" locale={router.locale === "en" ? "es" : "en"}>
+          <span className="NavLinkSpan">EN/ES</span>
+        </Link>
+      )}
+    </NavTexts>
+    // </Link>
   );
 };
 
