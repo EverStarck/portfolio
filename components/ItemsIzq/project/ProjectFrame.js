@@ -33,18 +33,20 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
   const router = useRouter();
   // GSAP
   let project = useRef(null);
+  let tl = gsap.timeline({ defaults: { duration: 0.7 } });
 
   const goToProject = () => {
     setAnimationReady({
       ...animationReady,
       projectClick: true,
+      navButton: false,
     });
 
     // Animation when click on one project
     if (window.innerWidth > 767) {
-      gsap.to(project, { opacity: 0, duration: 1, delay: 0.5 });
+      tl.to(project, { width: "110vw", delay: 0.5 });
     } else {
-      gsap.to(project, { opacity: 0, duration: 0.5 });
+      tl.to(project, { opacity: 0, duration: 0.5 });
     }
 
     // Wait end the animation to redirect at project link

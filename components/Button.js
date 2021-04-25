@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import styled from "@emotion/styled";
 
 const ButtonStyled = styled.a`
@@ -16,6 +18,7 @@ const ButtonStyled = styled.a`
   width: ${(props) => props.aWidth};
   height: ${(props) => props.aWidth};
   transition: 0.2s ease-in-out;
+  transform: translateY(100px);
   &:hover {
     transform: translateY(-5px);
   }
@@ -31,6 +34,10 @@ const Button = ({
   aPadding = "6px 50px",
   aWidth,
 }) => {
+  let buttonRef = useRef(null);
+  useEffect(() => {
+    gsap.to(buttonRef, { y: 0, duration: 0.5 });
+  }, []);
   return (
     <ButtonStyled
       aBorderR={aBorderR}
@@ -42,6 +49,7 @@ const Button = ({
       href={aHref}
       rel="noopener noreferrer"
       target="_blank"
+      ref={(el) => (buttonRef = el)}
     >
       {aText}
     </ButtonStyled>
