@@ -29,8 +29,6 @@ const TextLink = ({
   const router = useRouter();
 
   const clickNavLink = () => {
-    console.log(router);
-    // alert(goTo);
     setAnimationReady({
       ...animationReady,
       navClickLink: true,

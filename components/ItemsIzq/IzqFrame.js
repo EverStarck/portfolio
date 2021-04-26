@@ -6,7 +6,6 @@ import ReactFullpage from "@fullpage/react-fullpage";
 
 import ProjectFrame from "./project/ProjectFrame";
 import { DataContext } from "../../context/DataContext";
-import ThanksButton from "../Thanks/ThanksButton";
 
 const IzqStyled = styled.main`
   background-color: var(--background);
@@ -26,14 +25,12 @@ const IzqFrame = () => {
 
   // Animation when enter to web
   useEffect(() => {
-    // alert("izq")
     gsap.to(izq, { opacity: 1, duration: 1.5 });
   }, []);
+
   return (
     <IzqStyled ref={(el) => (izq = el)}>
       <ReactFullpage
-        // navigation
-        // navigationPosition="left"
         render={() => (
           <ReactFullpage.Wrapper>
             {data.map((projectData) => (

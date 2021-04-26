@@ -30,7 +30,7 @@ const WeatherApp = () => {
   const { data } = useContext(DataContext);
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   let projectScreen = useRef(null);
-  let tl = gsap.timeline({ defaults: { duration: 0.4 } });
+  let tl = gsap.timeline({ defaults: { duration: 0.4, ease: "power4.inOut" } });
 
   // Set navFirstAnimation to true. This mean the firs nav animation (when enter to left) is done.
   useEffect(() => {
@@ -45,18 +45,23 @@ const WeatherApp = () => {
   useEffect(() => {
     // Move the projects to left when click the nav button
     if (data.length > 0 && window.innerWidth > 767) {
+      // Move project to left when click the nav button
       if (animationReady.navButton) {
         tl.to(projectScreen, { xPercent: -30.2 });
-      } else {
+      }
+      // Move project to right when click the nav button
+      if (!animationReady.navButton) {
         tl.to(projectScreen, { xPercent: 0 });
       }
+      // Move projects to right and change opacity when click some link in nav
+      // if (animationReady.navClickLink) {
+      //   tl.to(projectScreen, { xPercent: -15 });
+      // }
     }
-
-    // Animation when click some link in project page
-    // if (animationReady.navClickLink) {
-    //   tl.to(projectScreen, { opacity: 0 });
-    // } else {
-    //   tl.to(projectScreen, { opacity: 1 });
+    // if (data.length > 0 && window.innerWidth < 767) {
+    //   if (animationReady.navClickLink) {
+    //     tl.to(projectScreen, { opacity: 0 });
+    //   }
     // }
   }, [animationReady]);
 

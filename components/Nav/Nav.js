@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { gsap } from "gsap";
+import { power4, gsap } from "gsap";
 import styled from "@emotion/styled";
 
 import { AnimationContext } from "../../context/AnimationContext";
@@ -85,7 +85,7 @@ const Nav = ({ isOnNav }) => {
   const { t } = useTranslation("common");
   let nav = useRef(null);
   let mask = useRef(null);
-  let tl = gsap.timeline({ defaults: { duration: 0.7 } });
+  let tl = gsap.timeline({ defaults: { duration: 0.7, ease: "power4.inOut", } });
 
   const closeNav = () => {
     tl.to(nav, { xPercent: 500 });
