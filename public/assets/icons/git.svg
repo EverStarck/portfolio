@@ -1,0 +1,10 @@
+<svg width="29" height="29" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#logos:git-icon__clip0)">
+    <path d="M28.19 13.253L15.967 1.029a1.803 1.803 0 00-2.55 0l-2.539 2.538 3.22 3.22a2.14 2.14 0 012.712 2.73l3.104 3.104a2.145 2.145 0 11-1.285 1.21l-2.895-2.894v7.616a2.146 2.146 0 11-1.764-.062v-7.688a2.145 2.145 0 01-1.165-2.814L9.63 4.814l-8.383 8.382a1.804 1.804 0 000 2.551l12.225 12.225a1.803 1.803 0 002.55 0l12.169-12.168a1.805 1.805 0 000-2.551" fill="#DE4C36"/>
+  </g>
+  <defs>
+    <clipPath id="logos:git-icon__clip0">
+      <path fill="#fff" transform="translate(.719 .5)" d="M0 0h28v28H0z"/>
+    </clipPath>
+  </defs>
+</svg>
