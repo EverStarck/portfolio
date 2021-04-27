@@ -1,6 +1,7 @@
 {
   "visitSite": "Ir al sitio",
   "madeWith": "Construido con",
+  "goBack": "Regresar",
 
   "weatherDesc": "🔎 ¡Obtenga la información meteorológica más reciente para hoy y los próximos 5 días y también disfrute de hermosas imágenes de la misma!",
   "weatherDev1": "No se reinvento la rueda. Es una aplicación de clima más, solamente que Weather App te proporciona imagenes del lugar que hayas buscado.",

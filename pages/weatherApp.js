@@ -9,7 +9,7 @@ import styled from "@emotion/styled";
 import Hero from "../components/ItemsIzq/project/sections/Hero";
 import Mockups from "../components/ItemsIzq/project/sections/Mockups";
 import Development from "../components/ItemsIzq/project/sections/Development";
-import Bocets from "../components/ItemsIzq/project/sections/Bocets";
+import Sketchs from "../components/ItemsIzq/project/sections/Sketchs";
 import Nav from "../components/Nav/Nav";
 
 const ProjectFramePage = styled.main`
@@ -80,7 +80,7 @@ const WeatherApp = () => {
             <div className="projectWidth">
               <Development data={data[1]} />
             </div>
-            <Bocets data={data[1]} />
+            <Sketchs data={data[1]} />
           </ProjectFramePage>
         </>
       )}

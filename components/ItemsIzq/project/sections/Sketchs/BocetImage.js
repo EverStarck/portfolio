@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
 
-const BocetImageFrame = styled.div`
+const SketchImageFrame = styled.div`
   min-width: 80vw;
   max-width: 80vw;
   width: 100%;
@@ -19,19 +19,20 @@ const BocetImageFrame = styled.div`
   }
 `;
 
-const BocetImage = ({ data }) => {
+const SketchImage = ({ data }) => {
   return (
-    <BocetImageFrame data={data}>
-      {data.bocetsImg.map((bocet) => (
+    <SketchImageFrame data={data}>
+      {data.bocetsImg.map((sketch) => (
         <Image
-          src={bocet}
-          alt="Picture of the author"
+          key={sketch}
+          src={sketch}
+          alt={`photo of ${data.title} project sketches`}
           width={662}
           height={839}
         />
       ))}
-    </BocetImageFrame>
+    </SketchImageFrame>
   );
 };
 
-export default BocetImage;
+export default SketchImage;

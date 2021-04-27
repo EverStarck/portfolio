@@ -1,8 +1,9 @@
 import Image from "next/image";
 import styled from "@emotion/styled";
-import BocetImage from "./bocets/BocetImage";
+import BocetImage from "./Sketchs/BocetImage";
+import GoBack from "../GoBack";
 
-const BocetsFrame = styled.section`
+const SketchsFrame = styled.section`
   background-color: var(--white);
   min-height: 100vh;
   display: grid;
@@ -30,22 +31,23 @@ const BocetsFrame = styled.section`
   }
 `;
 
-const Bocets = ({ data }) => {
+const Sketchs = ({ data }) => {
   return (
-    <BocetsFrame>
+    <SketchsFrame>
       <div className="containerWidth">
         <div className="performanceImg">
           <Image
             src={data.lastImgPerformance}
-            alt="Picture of the author"
+            alt={`Screenshot of ${data.title} project performance`}
             width={858}
             height={175}
           />
         </div>
         <BocetImage data={data} />
       </div>
-    </BocetsFrame>
+      <GoBack />
+    </SketchsFrame>
   );
 };
 
-export default Bocets;
+export default Sketchs;
