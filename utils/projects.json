@@ -31,12 +31,8 @@
     "screenShots": ["/projects/weatherMobil.png", "/projects/weatherPC.png"],
     "developmentText": ["weatherDev1", "weatherDev2"],
     "developmentImg": "/projects/weatherDesigns.png",
-    "lastImgs": [
-      "/projects/performance.webp",
-      "/projects/boceto1.webp",
-      "/projects/boceto2.webp",
-      "/projects/boceto3.webp"
-    ],
+    "lastImgPerformance": "/projects/weatherLighthouse.png",
+    "bocetsImg": ["/projects/weatherBocet.png"],
     "thxButton": false
   },
   {

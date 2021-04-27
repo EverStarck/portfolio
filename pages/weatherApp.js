@@ -79,8 +79,8 @@ const WeatherApp = () => {
             <Mockups data={data[1]} />
             <div className="projectWidth">
               <Development data={data[1]} />
-              <Bocets />
             </div>
+            <Bocets data={data[1]} />
           </ProjectFramePage>
         </>
       )}
