@@ -1,10 +1,7 @@
 import styled from "@emotion/styled";
+import { useTranslation } from "react-i18next";
 
 const InfoFrame = styled.section`
-  /* display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center; */
   h1 {
     color: var(--yellow);
     font-size: clamp(2rem, 4vw, 3rem);
@@ -20,14 +17,15 @@ align-items: center; */
 `;
 
 const Info = () => {
+  const { t } = useTranslation("about");
   return (
     <InfoFrame>
-      <h1> Ever Alejandro </h1>
-      <h2>Front end developer</h2>
+      <h1>Ever Alejandro</h1>
+      <h2>{t("frontEndDev")}</h2>
       <p>
-        I am a 19-year-old software engineering student. I was always passionate
-        about technology and learning. <br /> I like to do minimalist and
-        stylish things
+        {t("description1")}
+        <br />
+        {t("description2")}
       </p>
       img here
     </InfoFrame>

@@ -92,13 +92,13 @@
   {
     "0": [
       { "text": "Teamwork", "image": "👨‍👩‍👦‍" },
-      { "text": "Problem Solving", "image": "🤔" },
-      { "text": "Self motivation", "image": "💪" },
+      { "text": "ProblemSolving", "image": "🤔" },
+      { "text": "SelfMotivation", "image": "💪" },
       { "text": "Creativity", "image": "🖼" },
       { "text": "Responsibility", "image": "⏰" },
       { "text": "Comunication", "image": "🔊" },
       { "text": "Empaty", "image": "💛" },
-      { "text": "Conflict Resolution", "image": "🤝" }
+      { "text": "ConflictResolution", "image": "🤝" }
     ]
   },
   {
@@ -107,7 +107,7 @@
       { "text": "Pixel Art", "image": "🖼" },
       { "text": "Security", "image": "💻" },
       { "text": "Design", "image": "🎨" },
-      { "text": "Video games", "image": "🎮" },
+      { "text": "VideoGames", "image": "🎮" },
       { "text": "Music", "image": "🎹" }
     ]
   }

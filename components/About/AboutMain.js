@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Info from "./Info";
 import Skills from "./Skills";
 import allSkills from "../../utils/allSkills.json";
+import { useTranslation } from "react-i18next";
 
 const AboutMainFrame = styled.main`
   min-width: 69vw;
@@ -21,22 +22,25 @@ const AboutMainFrame = styled.main`
 `;
 
 const AboutMain = () => {
+  const { t } = useTranslation("about");
   return (
     <AboutMainFrame>
       <div className="aboutMainContainer">
         <Info />
-        {/* {allSkills.map((skills) => (
-        <Skills key={skills[0][0].text} skills={skills} />
-      ))} */}
-        <Skills skills={allSkills[0]} h2Text="Skills" skillsHeight="250px" />
+
+        <Skills
+          skills={allSkills[0]}
+          h2Text={t("Skills")}
+          skillsHeight="250px"
+        />
         <Skills
           skills={allSkills[1]}
-          h2Text="Soft Skills"
+          h2Text={t("SoftSkills")}
           skillsHeight="200px"
         />
         <Skills
           skills={allSkills[2]}
-          h2Text="Other Interest"
+          h2Text={t("OtherInterest")}
           skillsHeight="150px"
         />
       </div>
