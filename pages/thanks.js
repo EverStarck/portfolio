@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef } from "react";
-import Link from "next/link";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "react-i18next";
+import Link from "next/link";
 import { gsap } from "gsap";
 import styled from "@emotion/styled";
 import { AnimationContext } from "../context/AnimationContext";
@@ -77,6 +77,7 @@ const Thanks = () => {
     setAnimationReady({
       ...animationReady,
       heartClick: false,
+      goBackButton: true,
     });
   }, []);
 
