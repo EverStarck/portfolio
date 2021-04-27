@@ -39,6 +39,7 @@ const WeatherApp = () => {
       projectClick: false,
       navFirstAnimation: true,
       navClickLink: false,
+      goBackButton: false,
     });
   }, []);
 

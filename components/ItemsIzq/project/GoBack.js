@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import styled from "@emotion/styled";
 import Arrow from "../../Thanks/Arrow";
+import { useContext, useEffect } from "react";
+import { AnimationContext } from "../../../context/AnimationContext";
 
 const GoBackFrame = styled.div`
   color: var(--black);
@@ -29,10 +31,16 @@ const GoBackFrame = styled.div`
 `;
 
 const GoBack = () => {
+  // Context
+  const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const { t } = useTranslation("project");
   const router = useRouter();
 
   const goBackClick = () => {
+    setAnimationReady({
+      ...animationReady,
+      goBackButton: true,
+    });
     router.push("/");
   };
 

@@ -85,7 +85,7 @@ const Nav = ({ isOnNav }) => {
   const { t } = useTranslation("common");
   let nav = useRef(null);
   let mask = useRef(null);
-  let tl = gsap.timeline({ defaults: { duration: 0.7, ease: "power4.inOut", } });
+  let tl = gsap.timeline({ defaults: { duration: 0.7, ease: "power4.inOut" } });
 
   const closeNav = () => {
     tl.to(nav, { xPercent: 500 });
@@ -120,6 +120,11 @@ const Nav = ({ isOnNav }) => {
     // Deskotp. Don't show animation when leave project page. The nav will be on his site.
     if (window.innerWidth > 767 && isOnNav && animationReady.navClickLink) {
       tl.to(nav, { x: 0, xPercent: 0, duration: 0 });
+    }
+
+    // Show nav when leave project with back button
+    if (window.innerWidth > 767 && isOnNav && animationReady.goBackButton) {
+      tl.to(nav, { x: 0, xPercent: 0 });
     }
     console.log("window.innerHeight", window.innerHeight, window.innerWidth);
   }, []);
