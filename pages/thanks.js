@@ -5,6 +5,7 @@ import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
 import styled from "@emotion/styled";
 import { AnimationContext } from "../context/AnimationContext";
+import Arrow from "../components/Thanks/Arrow";
 
 const ThanksPage = styled.main`
   background: var(--background);
@@ -39,9 +40,10 @@ const ThanksPage = styled.main`
     position: absolute;
     top: 20px;
     left: 50px;
-    color: var(--blue);
-    font-size: clamp(4rem, 5vw, 7rem);
     transition: 0.4s ease;
+    filter: invert(49%) sepia(94%) saturate(1222%) hue-rotate(183deg)
+      brightness(92%) contrast(86%);
+    cursor: pointer;
     &:hover {
       transform: translateX(-10px);
     }
@@ -87,7 +89,9 @@ const Thanks = () => {
           {t("thanksText1")} <strong>401</strong> {t("thanksText2")}
         </h2>
         <Link href="/">
-          <a className="goBackHeart">←</a>
+          <div className="goBackHeart">
+            <Arrow arrowWidth="50" arrowHeight="30" />
+          </div>
         </Link>
       </div>
     </ThanksPage>

@@ -1,7 +1,7 @@
 import { useRouter } from "next/router";
-import Image from "next/image";
 import { useTranslation } from "react-i18next";
 import styled from "@emotion/styled";
+import Arrow from "../../Thanks/Arrow";
 
 const GoBackFrame = styled.div`
   color: var(--black);
@@ -39,12 +39,7 @@ const GoBack = () => {
   return (
     <GoBackFrame onClick={goBackClick}>
       <div className="imgFrameArrow">
-        <Image
-          src="/assets/icons/arrow.svg"
-          alt="Back arrow"
-          width={31}
-          height={21}
-        />
+        <Arrow arrowWidth="31" arrowHeight="21" />
       </div>
       <h3>{t("goBack")}</h3>
     </GoBackFrame>
