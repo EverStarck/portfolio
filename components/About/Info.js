@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import Image from "next/image";
 import { useTranslation } from "react-i18next";
 
 const InfoFrame = styled.section`
@@ -14,6 +15,17 @@ const InfoFrame = styled.section`
     font-size: clamp(1rem, 4vw, 1.5rem);
     text-align: center;
   }
+  p {
+    font-size: clamp(0.9rem, 3vw, 1.25rem);
+  }
+  .infoImgFrame {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    .borderRadiusImg {
+      border-radius: 16px;
+    }
+  }
 `;
 
 const Info = () => {
@@ -27,7 +39,19 @@ const Info = () => {
         <br />
         {t("description2")}
       </p>
-      img here
+
+      <div className="infoImgFrame">
+        <Image
+          src="/assets/me.png"
+          alt="Picture of the author (Ever Alejandro)"
+          width={656}
+          height={745}
+          layout="intrinsic"
+          objectFit="cover"
+          className="borderRadiusImg"
+          objectPosition="top"
+        />
+      </div>
     </InfoFrame>
   );
 };

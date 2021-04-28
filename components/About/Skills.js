@@ -24,16 +24,22 @@ const OtherFrame = styled.section`
     position: relative;
   }
 `;
-const Skills = ({ skills, h2Text, skillsHeight }) => {
+const Skills = ({
+  skills,
+  h2Text,
+  skillsHeight,
+  h2FontSize,
+  skillFontSize,
+}) => {
   const OtherSkill = () => {
     return skills[1].map((skill) => <Skill skill={skill} />);
   };
   return (
     <>
-      <H2 h2Text={h2Text} h2Padding="30px 0 25px 0" />
+      <H2 h2Text={h2Text} h2Padding="30px 0 25px 0" h2FontSize={h2FontSize} />
       <SkillsFrame skillsHeight={skillsHeight}>
         {skills[0].map((skill) => (
-          <Skill key={skill.text} skill={skill} />
+          <Skill key={skill.text} skill={skill} skillFontSize={skillFontSize} />
         ))}
       </SkillsFrame>
 

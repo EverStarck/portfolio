@@ -15,14 +15,14 @@ const SkillFrame = styled.div`
     margin: 0 0 0 10px;
     word-wrap: break-word;
     word-break: break-all;
-    font-size: clamp(0.9rem, 3vw, 1.25rem);
+    font-size: ${props => props.skillFontSize};
   }
 `;
 
-const Skill = ({ skill }) => {
+const Skill = ({ skill, skillFontSize = "clamp(0.9rem, 3vw, 1.25rem)" }) => {
   const { t } = useTranslation("about");
   return (
-    <SkillFrame>
+    <SkillFrame skillFontSize={skillFontSize}>
       {skill.image.includes("/") ? (
         <Image
           src={skill.image}

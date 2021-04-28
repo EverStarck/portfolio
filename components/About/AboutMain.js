@@ -42,6 +42,8 @@ const AboutMain = () => {
           skills={allSkills[2]}
           h2Text={t("OtherInterest")}
           skillsHeight="150px"
+          h2FontSize="clamp(1.5rem, 4vw, 2.25rem)"
+          skillFontSize="clamp(.8rem, 2vw, 1.125rem)"
         />
       </div>
     </AboutMainFrame>
