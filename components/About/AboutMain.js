@@ -3,6 +3,8 @@ import Info from "./Info";
 import Skills from "./Skills";
 import allSkills from "../../utils/allSkills.json";
 import { useTranslation } from "react-i18next";
+import ContactButtons from "../Contact/ContactButtons";
+import H2 from "../H2";
 
 const AboutMainFrame = styled.main`
   min-width: 69vw;
@@ -23,6 +25,7 @@ const AboutMainFrame = styled.main`
 
 const AboutMain = () => {
   const { t } = useTranslation("about");
+
   return (
     <AboutMainFrame>
       <div className="aboutMainContainer">
@@ -45,6 +48,8 @@ const AboutMain = () => {
           h2FontSize="clamp(1.5rem, 4vw, 2.25rem)"
           skillFontSize="clamp(.8rem, 2vw, 1.125rem)"
         />
+        <H2 h2Text={t("contact")} h2Padding="30px 0 25px 0" />
+        <ContactButtons />
       </div>
     </AboutMainFrame>
   );

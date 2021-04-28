@@ -6,7 +6,7 @@ const ButtonStyled = styled.a`
   display: inline-block;
   cursor: pointer;
   color: ${(props) => props.aColor};
-  background-image: ${(props) => props.aBgImg};
+  background: ${(props) => props.aBgImg};
   background-size: cover;
   background-color: ${(props) => props.aBgColor};
   border-radius: ${(props) => props.aBorderR};
