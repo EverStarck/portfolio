@@ -49,7 +49,7 @@ const AboutMain = () => {
           skillFontSize="clamp(.8rem, 2vw, 1.125rem)"
         />
         <H2 h2Text={t("contact")} h2Padding="30px 0 25px 0" />
-        <ContactButtons />
+        <ContactButtons aAnimation={false}/>
       </div>
     </AboutMainFrame>
   );

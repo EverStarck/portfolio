@@ -1,14 +1,9 @@
 import styled from "@emotion/styled";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import H1 from "../H1";
 
 const InfoFrame = styled.section`
-  h1 {
-    color: var(--yellow);
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin: 0;
-    text-align: center;
-  }
   h2 {
     margin: 0;
     font-weight: 400;
@@ -32,7 +27,7 @@ const Info = () => {
   const { t } = useTranslation("about");
   return (
     <InfoFrame>
-      <h1>Ever Alejandro</h1>
+      <H1 h1Text="Ever Alejandro" />
       <h2>{t("frontEndDev")}</h2>
       <p>
         {t("description1")}

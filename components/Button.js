@@ -18,7 +18,7 @@ const ButtonStyled = styled.a`
   width: ${(props) => props.aWidth};
   height: ${(props) => props.aWidth};
   transition: 0.2s ease-in-out;
-  transform: translateY(100px);
+  transform: ${(props) => props.aAnimation ? "translateY(100px)" : ""};
   &:hover {
     transform: translateY(-5px);
   }
@@ -33,10 +33,13 @@ const Button = ({
   aBgColor = "var(--yellow)",
   aPadding = "6px 50px",
   aWidth,
+  aAnimation = true,
 }) => {
   let buttonRef = useRef(null);
   useEffect(() => {
-    gsap.to(buttonRef, { y: 0, duration: 0.5 });
+    if (aAnimation) {
+      gsap.to(buttonRef, { y: 0, duration: 0.5 });
+    }
   }, []);
   return (
     <ButtonStyled
@@ -46,6 +49,7 @@ const Button = ({
       aPadding={aPadding}
       aWidth={aWidth}
       aBgImg={aBgImg}
+      aAnimation={aAnimation}
       href={aHref}
       rel="noopener noreferrer"
       target="_blank"

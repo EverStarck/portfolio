@@ -5,11 +5,11 @@ import Button from "../Button";
 const ContactButtonsFrame = styled.div`
   display: flex;
   align-items: center;
-  /* flex-direction: column; */
+  flex-direction: ${(props) => (props.buttonsFlex ? "column" : "row")};
   small {
-    padding: 0 20px;
+    padding: ${(props) => (props.buttonsFlex ? "20px 0" : "0 20px")};
     text-align: center;
-    /* display: block; */
+    display: ${(props) => (props.buttonsFlex ? "block" : "inline-block")};
   }
   .otherButtonsContact {
     a {
@@ -27,17 +27,18 @@ const ContactButtonsFrame = styled.div`
   }
 `;
 
-const ContactButtons = () => {
+const ContactButtons = ({ aAnimation, buttonsFlex = false }) => {
   const { t } = useTranslation("common");
 
   return (
-    <ContactButtonsFrame>
+    <ContactButtonsFrame buttonsFlex={buttonsFlex}>
       <Button
         aHref="mailto:mail@mail.com"
         aPadding="10px 50px"
         aText={t("sayHello")}
         aColor="var(--blue)"
         aBgColor="var(--white)"
+        aAnimation={aAnimation}
       />
       <div className="otherButtonsContact">
         <small>or</small>
@@ -49,6 +50,7 @@ const ContactButtons = () => {
           aPadding="0"
           aWidth="28px"
           aBgImg="url(/assets/icons/twitter.svg) no-repeat center center"
+          aAnimation={aAnimation}
         />
         <Button
           aHref="https://github.com/EverStarck"
@@ -58,6 +60,7 @@ const ContactButtons = () => {
           aPadding="0"
           aWidth="28px"
           aBgImg="url(/assets/icons/github.svg)"
+          aAnimation={aAnimation}
         />
         <Button
           aHref="https://www.linkedin.com/in/everstarck/"
@@ -67,6 +70,7 @@ const ContactButtons = () => {
           aPadding="0"
           aWidth="28px"
           aBgImg="url(/assets/icons/linkedin.svg) no-repeat center center"
+          aAnimation={aAnimation}
         />
       </div>
     </ContactButtonsFrame>
