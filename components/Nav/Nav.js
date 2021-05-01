@@ -12,7 +12,7 @@ const NavStyled = styled.nav`
   height: 100%;
   width: 30vw;
   /* transform: translate(500%); */
-  transform: translate(100%);
+  transform: ${props => props.isOnHome ? "translate(100%)" : ""};
   position: fixed;
   z-index: 2;
   top: 0;
@@ -45,6 +45,7 @@ const NavStyled = styled.nav`
     border-top: 1px solid var(--white);
     border-left: none;
     z-index: 10;
+    transform: translate(100%);
     .closeMenuMobil {
       display: inline-block;
       position: absolute;
@@ -88,21 +89,29 @@ const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
   let mask = useRef(null);
   const navTimelineFirst = useRef();
   const navTimelineProject = useRef();
+
+  const mobileNav = useRef();
+
   let tl = gsap.timeline({
     defaults: { duration: 0.7, ease: "power4.inOut" },
   });
 
   const closeNav = () => {
-    tl.to(nav, { xPercent: 100 });
-    tl.to(mask, { transform: "scale(0)" }, "-=.8");
+    mobileNav.current.reverse();
   };
 
   const showNav = () => {
-    // tl.to(mask, { transform: "scale(1)" });
-    // tl.to(nav, { x: 0, xPercent: 0, duration: 0.5 }, "-=.6");
-    tl.to(mask, { transform: "scale(1)" });
-    tl.to(nav, { x: 0, xPercent: 0, duration: 0.5 }, "-=.6");
+    mobileNav.current.play();
   };
+
+  useEffect(() => {
+    // Mobile Nav animation
+    mobileNav.current = gsap.timeline({ paused: true });
+    if (window.innerWidth < 767) {
+      mobileNav.current.to(mask, { transform: "scale(1)", duration: 0.5 });
+      mobileNav.current.to(nav, { x: 0, xPercent: 0 }, "-=.6");
+    }
+  }, []);
 
   // useEffect(() => {
   //   navTimelineFirst.current = gsap.timeline({ paused: false });
@@ -226,7 +235,7 @@ const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
 
   return (
     <>
-      <NavStyled ref={(el) => (nav = el)} isOnNav={isOnNav}>
+      <NavStyled ref={(el) => (nav = el)} isOnNav={isOnNav} isOnHome={isOnHome}>
         <button className="closeMenuMobil" onClick={closeNav}>
           {t("Close")}
         </button>
