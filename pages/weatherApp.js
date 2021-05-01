@@ -72,7 +72,7 @@ const WeatherApp = () => {
         <h1>Loading</h1>
       ) : (
         <>
-          <Nav isOnNav={false} />
+          <Nav isOnNav={false} isOnProject/>
           <ProjectFramePage ref={(el) => (projectScreen = el)}>
             <div className="projectWidth">
               <Hero data={data[1]} />

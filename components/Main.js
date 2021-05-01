@@ -11,10 +11,12 @@ const AllFrame = styled.div`
 
 const Main = () => {
   return (
-    <AllFrame>
-      <IzqFrame />
-      <Nav isOnNav={true}/>
-    </AllFrame>
+    <>
+      <AllFrame>
+        <IzqFrame />
+      </AllFrame>
+      <Nav isOnNav={true} isOnHome />
+    </>
   );
 };
 

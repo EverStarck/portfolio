@@ -11,7 +11,8 @@ import ButtonNav from "./ButtonNav";
 const NavStyled = styled.nav`
   height: 100%;
   width: 30vw;
-  transform: translate(500%);
+  /* transform: translate(500%); */
+  transform: translate(100%);
   position: fixed;
   z-index: 2;
   top: 0;
@@ -64,8 +65,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  transform: translate(90vw, 45vh);
+  bottom: 40px;
+  right: 40px;
   z-index: 9;
   .mask {
     position: absolute;
@@ -78,78 +79,150 @@ const Wrapper = styled.div`
   }
 `;
 
-const Nav = ({ isOnNav }) => {
+const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   // Translate
   const { t } = useTranslation("common");
   let nav = useRef(null);
   let mask = useRef(null);
-  let tl = gsap.timeline({ defaults: { duration: 0.7, ease: "power4.inOut" } });
+  const navTimelineFirst = useRef();
+  const navTimelineProject = useRef();
+  let tl = gsap.timeline({
+    defaults: { duration: 0.7, ease: "power4.inOut" },
+  });
 
   const closeNav = () => {
-    tl.to(nav, { xPercent: 500 });
+    tl.to(nav, { xPercent: 100 });
     tl.to(mask, { transform: "scale(0)" }, "-=.8");
   };
 
   const showNav = () => {
+    // tl.to(mask, { transform: "scale(1)" });
+    // tl.to(nav, { x: 0, xPercent: 0, duration: 0.5 }, "-=.6");
     tl.to(mask, { transform: "scale(1)" });
     tl.to(nav, { x: 0, xPercent: 0, duration: 0.5 }, "-=.6");
   };
 
+  // useEffect(() => {
+  //   navTimelineFirst.current = gsap.timeline({ paused: false });
+  //   navTimelineProject.current = gsap.timeline({ paused: true });
+
+  //   if (window.innerWidth > 767) {
+  //     // Hide Nav only in Home
+  //     if (isOnHome) {
+  //       if (isOnHome) {
+  //         navTimelineFirst.current.fromTo(
+  //           nav,
+  //           {
+  //             duration: 0,
+  //             x: "100%",
+  //           },
+  //           {
+  //             duration: 0.7,
+  //             x: "0%",
+  //             ease: "power4.inOut",
+  //           }
+  //         );
+  //       }
+  //     }
+
+  //     // Show and hide nav animation
+  //     if (isOnProject) {
+  //       navTimelineProject.current.fromTo(
+  //         nav,
+  //         {
+  //           duration: 0,
+  //           x: "100%",
+  //         },
+  //         {
+  //           duration: 0.4,
+  //           x: "0%",
+  //           ease: "power4.inOut",
+  //         }
+  //       );
+  //     }
+  //   }
+
+  //   if (window.innerWidth < 767) {
+  //     // gsap.to(nav, { duration: 0, x: "0%" });
+  //     navTimelineFirst.current.fromTo(
+  //       nav,
+  //       {
+  //         duration: 0,
+  //         x: "100%",
+  //       },
+  //       {
+  //         duration: 0,
+  //         x: "100%",
+  //         ease: "power4.inOut",
+  //       }
+  //     );
+  //   }
+  // }, []);
+
+  // useEffect(() => {
+  //   // Show and hide nav when make click in it. Project page
+  //   if (animationReady.navButton) {
+  //     navTimelineProject.current.play();
+  //   } else {
+  //     navTimelineProject.current.reverse();
+  //   }
+  // }, [animationReady]);
+
   // Animation when enter to web
-  useEffect(() => {
-    // Change click on project to false when go home
-    setAnimationReady({
-      ...animationReady,
-      projectClick: false,
-    });
+  // useEffect(() => {
+  //   // Change click on project to false when go home
+  //   setAnimationReady({
+  //     ...animationReady,
+  //     projectClick: false,
+  //   });
 
-    // Deskotp. Show the nav animation to left just in home and when enter to web the first time
-    if (
-      window.innerWidth > 767 &&
-      isOnNav &&
-      !animationReady.navFirstAnimation
-    ) {
-      tl.to(nav, { x: 0, xPercent: 0 });
-      setAnimationReady({
-        ...animationReady,
-        navFirstAnimation: true,
-      });
-    }
-    // Deskotp. Don't show animation when leave project page. The nav will be on his site.
-    if (window.innerWidth > 767 && isOnNav && animationReady.navClickLink) {
-      tl.to(nav, { x: 0, xPercent: 0, duration: 0 });
-    }
+  //   // Deskotp. Show the nav animation to left just in home and when enter to web the first time
+  //   if (
+  //     window.innerWidth > 767 &&
+  //     isOnNav &&
+  //     !animationReady.navFirstAnimation
+  //   ) {
+  //     tl.to(nav, { x: 0, xPercent: 0 });
+  //     setAnimationReady({
+  //       ...animationReady,
+  //       navFirstAnimation: true,
+  //     });
+  //   }
+  //   // Deskotp. Don't show animation when leave project page. The nav will be on his site.
+  //   if (window.innerWidth > 767 && isOnNav && animationReady.navClickLink) {
+  //     tl.to(nav, { x: 0, xPercent: 0, duration: 0 });
+  //   }
 
-    // Show nav when leave project with back button
-    if (window.innerWidth > 767 && isOnNav && animationReady.goBackButton) {
-      tl.to(nav, { x: 0, xPercent: 0 });
-    }
-    console.log("window.innerHeight", window.innerHeight, window.innerWidth);
-  }, []);
+  //   // Show nav when leave project with back button
+  //   if (window.innerWidth > 767 && isOnNav && animationReady.goBackButton) {
+  //     tl.to(nav, { x: 0, xPercent: 0 });
+  //   }
+  //   console.log("window.innerHeight", window.innerHeight, window.innerWidth);
+  // }, []);
 
-  useEffect(() => {
-    // Animation when click on one project (Hide the nav)
-    if (window.innerWidth > 767 && animationReady.projectClick) {
-      tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
-    }
-    // Hide nav when click the heart (but show when leave)
-    if (animationReady.heartClick) {
-      tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
-    }
-    // Project Nav Anmations just in desktop
-    if (window.innerWidth > 767 && !isOnNav) {
-      // Move nav to left when click the nav button
-      if (animationReady.navButton && !animationReady.navClickLink) {
-        tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
-      }
-      // Move nav to right when click the nav button
-      if (!animationReady.navClickLink && !animationReady.navButton) {
-        tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
-      }
-    }
-  }, [animationReady]);
+  // useEffect(() => {
+  //   // Animation when click on one project (Hide the nav)
+  //   if (window.innerWidth > 767 && animationReady.projectClick) {
+  //     tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
+  //   }
+  //   // Hide nav when click the heart (but show when leave)
+  //   if (animationReady.heartClick) {
+  //     tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
+  //   }
+  //   // Project Nav Anmations just in desktop
+  //   if (window.innerWidth > 767 && !isOnNav) {
+  //     // Move nav to left when click the nav button
+  //     if (animationReady.navButton && !animationReady.navClickLink) {
+  //       tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
+  //     }
+  //     // Move nav to right when click the nav button
+  //     if (!animationReady.navClickLink && !animationReady.navButton) {
+  //       tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
+  //     }
+  //   }
+  // }, [animationReady]);
 
   return (
     <>

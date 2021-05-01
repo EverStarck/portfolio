@@ -14,6 +14,10 @@ const AnimationProvider = ({ children }) => {
       y: 0,
     },
     goBackButton: false, // Show nav when leave project with back button
+
+
+
+    navAnimation: false
   });
   return (
     <AnimationContext.Provider value={{ animationReady, setAnimationReady }}>

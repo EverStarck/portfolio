@@ -37,16 +37,17 @@ const Contact = () => {
   const { t } = useTranslation("common");
 
   return (
-    <ContactStyled>
-      <section className="aboutMainContainer">
-        <H1 h1Text={t("letsBuild")} />
-        <p>{t("contactText")}</p>
+    <>
+      <ContactStyled>
+        <section className="aboutMainContainer">
+          <H1 h1Text={t("letsBuild")} />
+          <p>{t("contactText")}</p>
 
-        <ContactButtons aAnimation={false} buttonsFlex={true} />
-
-        <Nav />
-      </section>
-    </ContactStyled>
+          <ContactButtons aAnimation={false} buttonsFlex={true} />
+        </section>
+      </ContactStyled>
+      <Nav />
+    </>
   );
 };
 
