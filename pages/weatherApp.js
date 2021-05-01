@@ -54,10 +54,10 @@ const WeatherApp = () => {
       if (!animationReady.navButton) {
         tl.to(projectScreen, { xPercent: 0 });
       }
-      // Move projects to right and change opacity when click some link in nav
-      // if (animationReady.navClickLink) {
-      //   tl.to(projectScreen, { xPercent: -15 });
-      // }
+      // Move projects to right when click some link in nav
+      if (animationReady.navClickLink) {
+        tl.to(projectScreen, { xPercent: -15 });
+      }
     }
     // if (data.length > 0 && window.innerWidth < 767) {
     //   if (animationReady.navClickLink) {
@@ -72,7 +72,7 @@ const WeatherApp = () => {
         <h1>Loading</h1>
       ) : (
         <>
-          <Nav isOnNav={false} isOnProject buttonNavWorks/>
+          <Nav isOnProject buttonNavWorks/>
           <ProjectFramePage ref={(el) => (projectScreen = el)}>
             <div className="projectWidth">
               <Hero data={data[1]} />

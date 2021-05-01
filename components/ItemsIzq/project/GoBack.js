@@ -40,6 +40,7 @@ const GoBack = () => {
     setAnimationReady({
       ...animationReady,
       goBackButton: true,
+      navFirstAnimation: false
     });
     router.push("/");
   };

@@ -20,14 +20,13 @@ const ButtonNavStyled = styled.div`
     height: 60px;
     background-color: var(--yellow);
     position: fixed;
-    /* top: calc(100% - 70px); */
     bottom: 10px;
     right: 10px;
     border-radius: 50%;
   }
 `;
 
-const ButtonNav = ({ isOnNav, buttonNavWorks, showNav }) => {
+const ButtonNav = ({ buttonNavWorks, showNav }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   let buttonNav = useRef(null);
@@ -66,7 +65,6 @@ const ButtonNav = ({ isOnNav, buttonNavWorks, showNav }) => {
     <ButtonNavStyled
       ref={(el) => (buttonNav = el)}
       onClick={buttonNavClick}
-      isOnNav={isOnNav}
     ></ButtonNavStyled>
   );
 };

@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { power4, gsap } from "gsap";
+import { gsap } from "gsap";
 import styled from "@emotion/styled";
 
 import { AnimationContext } from "../../context/AnimationContext";
@@ -11,7 +11,6 @@ import ButtonNav from "./ButtonNav";
 const NavStyled = styled.nav`
   height: 100%;
   width: 30vw;
-  /* transform: translate(500%); */
   transform: ${(props) => (props.isOnHome ? "translate(100%)" : "")};
   transform: ${(props) => (props.isOnProject ? "translate(100%)" : "")};
   position: fixed;
@@ -82,7 +81,6 @@ const Wrapper = styled.div`
 `;
 
 const Nav = ({
-  isOnNav,
   isOnHome = false,
   isOnProject = false,
   buttonNavWorks = false,
@@ -96,9 +94,7 @@ const Nav = ({
   const navTimelineFirst = useRef();
   const navTimelineProject = useRef();
   const navProjectButton = useRef();
-
   const mobileNav = useRef();
-
   let tl = gsap.timeline({
     defaults: { duration: 0.7, ease: "power4.inOut" },
   });
@@ -111,6 +107,7 @@ const Nav = ({
     mobileNav.current.play();
   };
 
+  // Animations
   useEffect(() => {
     // Mobile Nav animation
     mobileNav.current = gsap.timeline({ paused: true });
@@ -155,18 +152,6 @@ const Nav = ({
       });
 
       // Animation whit button
-      // navProjectButton.current.fromTo(
-      //   nav,
-      //   {
-      //     duration: 0,
-      //     x: "150%",
-      //   },
-      //   {
-      //     duration: 0.4,
-      //     x: "0%",
-      //     ease: "power4.inOut",
-      //   }
-      // );
       navProjectButton.current.to(nav, {
         duration: 0.4,
         x: "0%",
@@ -187,67 +172,17 @@ const Nav = ({
     } else {
       navProjectButton.current.reverse();
     }
+
+    // Hide nav when click the heart (but show when leave)
+    if (animationReady.heartClick) {
+      tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
+    }
   }, [animationReady]);
-
-  // Animation when enter to web
-  // useEffect(() => {
-  //   // Change click on project to false when go home
-  //   setAnimationReady({
-  //     ...animationReady,
-  //     projectClick: false,
-  //   });
-
-  //   // Deskotp. Show the nav animation to left just in home and when enter to web the first time
-  //   if (
-  //     window.innerWidth > 767 &&
-  //     isOnNav &&
-  //     !animationReady.navFirstAnimation
-  //   ) {
-  //     tl.to(nav, { x: 0, xPercent: 0 });
-  //     setAnimationReady({
-  //       ...animationReady,
-  //       navFirstAnimation: true,
-  //     });
-  //   }
-  //   // Deskotp. Don't show animation when leave project page. The nav will be on his site.
-  //   if (window.innerWidth > 767 && isOnNav && animationReady.navClickLink) {
-  //     tl.to(nav, { x: 0, xPercent: 0, duration: 0 });
-  //   }
-
-  //   // Show nav when leave project with back button
-  //   if (window.innerWidth > 767 && isOnNav && animationReady.goBackButton) {
-  //     tl.to(nav, { x: 0, xPercent: 0 });
-  //   }
-  //   console.log("window.innerHeight", window.innerHeight, window.innerWidth);
-  // }, []);
-
-  // useEffect(() => {
-  //   // Animation when click on one project (Hide the nav)
-  //   if (window.innerWidth > 767 && animationReady.projectClick) {
-  //     tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
-  //   }
-  //   // Hide nav when click the heart (but show when leave)
-  //   if (animationReady.heartClick) {
-  //     tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
-  //   }
-  //   // Project Nav Anmations just in desktop
-  //   if (window.innerWidth > 767 && !isOnNav) {
-  //     // Move nav to left when click the nav button
-  //     if (animationReady.navButton && !animationReady.navClickLink) {
-  //       tl.to(nav, { x: 0, xPercent: 0, duration: 0.4 });
-  //     }
-  //     // Move nav to right when click the nav button
-  //     if (!animationReady.navClickLink && !animationReady.navButton) {
-  //       tl.to(nav, { x: 0, xPercent: 100, duration: 0.4 });
-  //     }
-  //   }
-  // }, [animationReady]);
 
   return (
     <>
       <NavStyled
         ref={(el) => (nav = el)}
-        isOnNav={isOnNav}
         isOnHome={isOnHome}
         isOnProject={isOnProject}
       >
@@ -266,11 +201,7 @@ const Nav = ({
         </div>
       </NavStyled>
 
-      <ButtonNav
-        isOnNav={isOnNav}
-        buttonNavWorks={buttonNavWorks}
-        showNav={showNav}
-      />
+      <ButtonNav buttonNavWorks={buttonNavWorks} showNav={showNav} />
 
       <Wrapper>
         <div className="mask" ref={(el) => (mask = el)}></div>

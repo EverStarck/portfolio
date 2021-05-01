@@ -15,7 +15,7 @@ const Main = () => {
       <AllFrame>
         <IzqFrame />
       </AllFrame>
-      <Nav isOnNav={true} isOnHome />
+      <Nav isOnHome />
     </>
   );
 };
