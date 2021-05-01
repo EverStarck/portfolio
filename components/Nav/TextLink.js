@@ -36,10 +36,12 @@ const TextLink = ({
 
     if (window.innerWidth < 767) {
       closeNav();
-    }
-    setTimeout(() => {
+      setTimeout(() => {
+        router.push(goTo);
+      }, 450);
+    } else {
       router.push(goTo);
-    }, 1000);
+    }
   };
 
   return (
