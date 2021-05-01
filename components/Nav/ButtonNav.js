@@ -27,7 +27,7 @@ const ButtonNavStyled = styled.div`
   }
 `;
 
-const ButtonNav = ({ isOnNav, showNav }) => {
+const ButtonNav = ({ isOnNav, buttonNavWorks, showNav }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   let buttonNav = useRef(null);
@@ -49,12 +49,13 @@ const ButtonNav = ({ isOnNav, showNav }) => {
   }, [animationReady]);
 
   const buttonNavClick = () => {
-    if (!isOnNav) {
+    if (buttonNavWorks) {
       setAnimationReady({
         ...animationReady,
         navButton: !animationReady.navButton,
       });
     }
+
     // Make nav menu appear just in mobil
     if (window.innerWidth < 767) {
       showNav();

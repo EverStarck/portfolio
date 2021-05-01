@@ -12,7 +12,8 @@ const NavStyled = styled.nav`
   height: 100%;
   width: 30vw;
   /* transform: translate(500%); */
-  transform: ${props => props.isOnHome ? "translate(100%)" : ""};
+  transform: ${(props) => (props.isOnHome ? "translate(100%)" : "")};
+  transform: ${(props) => (props.isOnProject ? "translate(100%)" : "")};
   position: fixed;
   z-index: 2;
   top: 0;
@@ -80,7 +81,12 @@ const Wrapper = styled.div`
   }
 `;
 
-const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
+const Nav = ({
+  isOnNav,
+  isOnHome = false,
+  isOnProject = false,
+  buttonNavWorks = false,
+}) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   // Translate
@@ -89,6 +95,7 @@ const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
   let mask = useRef(null);
   const navTimelineFirst = useRef();
   const navTimelineProject = useRef();
+  const navProjectButton = useRef();
 
   const mobileNav = useRef();
 
@@ -111,73 +118,76 @@ const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
       mobileNav.current.to(mask, { transform: "scale(1)", duration: 0.5 });
       mobileNav.current.to(nav, { x: 0, xPercent: 0 }, "-=.6");
     }
+
+    // Desktop Anmations
+    navTimelineFirst.current = gsap.timeline({ paused: false });
+    navTimelineProject.current = gsap.timeline({ paused: true });
+    navProjectButton.current = gsap.timeline({ paused: true });
+
+    if (window.innerWidth > 767) {
+      // Show Nav only in Home
+      // Make the animation only the first time you enter to web
+      if (isOnHome && !animationReady.navFirstAnimation) {
+        navTimelineFirst.current.to(nav, {
+          duration: 0.7,
+          x: "0%",
+          ease: "power4.inOut",
+        });
+        setAnimationReady({
+          ...animationReady,
+          navFirstAnimation: true,
+        });
+      }
+      // If the first animation is alredy done and you go home, the nav will be stay in his position and without animation
+      if (isOnHome && animationReady.navFirstAnimation) {
+        navTimelineFirst.current.to(nav, {
+          duration: 0.0,
+          x: "0%",
+        });
+      }
+
+      // Project
+      // Hide nav animation when click some project
+      navTimelineProject.current.to(nav, {
+        duration: 0.7,
+        x: "100%",
+        ease: "power4.inOut",
+      });
+
+      // Animation whit button
+      // navProjectButton.current.fromTo(
+      //   nav,
+      //   {
+      //     duration: 0,
+      //     x: "150%",
+      //   },
+      //   {
+      //     duration: 0.4,
+      //     x: "0%",
+      //     ease: "power4.inOut",
+      //   }
+      // );
+      navProjectButton.current.to(nav, {
+        duration: 0.4,
+        x: "0%",
+        ease: "power4.inOut",
+      });
+    }
   }, []);
 
-  // useEffect(() => {
-  //   navTimelineFirst.current = gsap.timeline({ paused: false });
-  //   navTimelineProject.current = gsap.timeline({ paused: true });
+  useEffect(() => {
+    // Hide nav animation when click some project
+    if (animationReady.projectClick) {
+      navTimelineProject.current.play();
+    }
 
-  //   if (window.innerWidth > 767) {
-  //     // Hide Nav only in Home
-  //     if (isOnHome) {
-  //       if (isOnHome) {
-  //         navTimelineFirst.current.fromTo(
-  //           nav,
-  //           {
-  //             duration: 0,
-  //             x: "100%",
-  //           },
-  //           {
-  //             duration: 0.7,
-  //             x: "0%",
-  //             ease: "power4.inOut",
-  //           }
-  //         );
-  //       }
-  //     }
-
-  //     // Show and hide nav animation
-  //     if (isOnProject) {
-  //       navTimelineProject.current.fromTo(
-  //         nav,
-  //         {
-  //           duration: 0,
-  //           x: "100%",
-  //         },
-  //         {
-  //           duration: 0.4,
-  //           x: "0%",
-  //           ease: "power4.inOut",
-  //         }
-  //       );
-  //     }
-  //   }
-
-  //   if (window.innerWidth < 767) {
-  //     // gsap.to(nav, { duration: 0, x: "0%" });
-  //     navTimelineFirst.current.fromTo(
-  //       nav,
-  //       {
-  //         duration: 0,
-  //         x: "100%",
-  //       },
-  //       {
-  //         duration: 0,
-  //         x: "100%",
-  //         ease: "power4.inOut",
-  //       }
-  //     );
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   // Show and hide nav when make click in it. Project page
-  //   if (animationReady.navButton) {
-  //     navTimelineProject.current.play();
-  //   } else {
-  //     navTimelineProject.current.reverse();
-  //   }
-  // }, [animationReady]);
+    // Show and hide nav when make click in it. Project page
+    if (animationReady.navButton) {
+      navProjectButton.current.play();
+    } else {
+      navProjectButton.current.reverse();
+    }
+  }, [animationReady]);
 
   // Animation when enter to web
   // useEffect(() => {
@@ -235,7 +245,12 @@ const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
 
   return (
     <>
-      <NavStyled ref={(el) => (nav = el)} isOnNav={isOnNav} isOnHome={isOnHome}>
+      <NavStyled
+        ref={(el) => (nav = el)}
+        isOnNav={isOnNav}
+        isOnHome={isOnHome}
+        isOnProject={isOnProject}
+      >
         <button className="closeMenuMobil" onClick={closeNav}>
           {t("Close")}
         </button>
@@ -251,7 +266,11 @@ const Nav = ({ isOnNav, isOnHome = false, isOnProject = false }) => {
         </div>
       </NavStyled>
 
-      <ButtonNav isOnNav={isOnNav} showNav={showNav} />
+      <ButtonNav
+        isOnNav={isOnNav}
+        buttonNavWorks={buttonNavWorks}
+        showNav={showNav}
+      />
 
       <Wrapper>
         <div className="mask" ref={(el) => (mask = el)}></div>
