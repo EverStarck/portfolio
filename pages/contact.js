@@ -1,9 +1,11 @@
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import styled from "@emotion/styled";
 import ContactButtons from "../components/Contact/ContactButtons";
 import Nav from "../components/Nav/Nav";
 import H1 from "../components/H1";
-import { useTranslation } from "react-i18next";
 
 const ContactStyled = styled.main`
   min-width: 70vw;
@@ -35,10 +37,26 @@ const ContactStyled = styled.main`
 
 const Contact = () => {
   const { t } = useTranslation("common");
+  let contentContact = useRef(null);
+  // Animation when enter to web
+  useEffect(() => {
+    gsap.fromTo(
+      contentContact,
+      {
+        duration: 0,
+        opacity: "0",
+      },
+      {
+        duration: 1,
+        opacity: "1",
+        ease: "power4.inOut",
+      }
+    );
+  }, []);
 
   return (
     <>
-      <ContactStyled>
+      <ContactStyled ref={(el) => (contentContact = el)}>
         <section className="aboutMainContainer">
           <H1 h1Text={t("letsBuild")} />
           <p>{t("contactText")}</p>

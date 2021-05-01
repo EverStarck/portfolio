@@ -1,8 +1,10 @@
+import { useTranslation } from "react-i18next";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 import styled from "@emotion/styled";
 import Info from "./Info";
 import Skills from "./Skills";
 import allSkills from "../../utils/allSkills.json";
-import { useTranslation } from "react-i18next";
 import ContactButtons from "../Contact/ContactButtons";
 import H2 from "../H2";
 
@@ -25,9 +27,25 @@ const AboutMainFrame = styled.main`
 
 const AboutMain = () => {
   const { t } = useTranslation("about");
+  let contentAbout = useRef(null);
+  // Animation when enter to web
+  useEffect(() => {
+    gsap.fromTo(
+      contentAbout,
+      {
+        duration: 0,
+        opacity: "0",
+      },
+      {
+        duration: 1,
+        opacity: "1",
+        ease: "power4.inOut",
+      }
+    );
+  }, []);
 
   return (
-    <AboutMainFrame>
+    <AboutMainFrame ref={(el) => (contentAbout = el)}>
       <div className="aboutMainContainer">
         <Info />
 
@@ -49,7 +67,7 @@ const AboutMain = () => {
           skillFontSize="clamp(.8rem, 2vw, 1.125rem)"
         />
         <H2 h2Text={t("contact")} h2Padding="30px 0 25px 0" />
-        <ContactButtons aAnimation={false}/>
+        <ContactButtons aAnimation={false} />
       </div>
     </AboutMainFrame>
   );
