@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import { useContext } from "react";
 import { AnimationContext } from "../../context/AnimationContext";
+import { route } from "next/dist/next-server/server/router";
 
 const NavTexts = styled.a`
   cursor: pointer;
@@ -28,6 +29,8 @@ const TextLink = ({
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const router = useRouter();
 
+  console.log(router);
+
   const clickNavLink = () => {
     setAnimationReady({
       ...animationReady,
@@ -45,19 +48,22 @@ const TextLink = ({
   };
 
   return (
-    // <Link href={goTo}>
     <NavTexts fontSize={fontSize}>
-      <span className="NavLinkSpan" onClick={clickNavLink}>
-        {textLink}
-      </span>
+      {!changeLanguage && (
+        <span className="NavLinkSpan" onClick={clickNavLink}>
+          {textLink}
+        </span>
+      )}
 
       {changeLanguage && (
-        <Link href="/" locale={router.locale === "en" ? "es" : "en"}>
+        <Link
+          href={router.pathname}
+          locale={router.locale === "en" ? "es" : "en"}
+        >
           <span className="NavLinkSpan">EN/ES</span>
         </Link>
       )}
     </NavTexts>
-    // </Link>
   );
 };
 

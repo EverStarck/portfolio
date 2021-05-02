@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useContext, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { gsap } from "gsap";
@@ -178,6 +179,9 @@ const Nav = ({
       tl.to(nav, { opacity: 0, duration: 0.4, delay: 0.3 });
     }
   }, [animationReady]);
+
+  const router = useRouter();
+  console.log(router);
 
   return (
     <>
