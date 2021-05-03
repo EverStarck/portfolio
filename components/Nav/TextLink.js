@@ -1,14 +1,14 @@
 import Link from "next/link";
 import styled from "@emotion/styled";
 import { useRouter } from "next/router";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AnimationContext } from "../../context/AnimationContext";
-import { route } from "next/dist/next-server/server/router";
 
 const NavTexts = styled.a`
   cursor: pointer;
   .NavLinkSpan {
-    color: var(--white);
+    /* color: var(--white); */
+    color: ${(props) => (props.linkIsPathname ? "var(--blue)" : "var(--white)")};
     font-size: ${(props) => props.fontSize};
     font-weight: 600;
     transition: 0.4s ease;
@@ -25,11 +25,12 @@ const TextLink = ({
   changeLanguage = false,
   goTo = "/",
 }) => {
+  const [linkIsPathname, setLinkIsPathname] = useState(false);
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const router = useRouter();
 
-  console.log(router);
+  // console.log(router);
 
   const clickNavLink = () => {
     setAnimationReady({
@@ -47,8 +48,17 @@ const TextLink = ({
     }
   };
 
+  // Set color to blue
+  useEffect(() => {
+    if (!changeLanguage) {
+      if (goTo === router.pathname || `/${goTo}` === router.pathname) {
+        setLinkIsPathname(true);
+      }
+    }
+  }, []);
+
   return (
-    <NavTexts fontSize={fontSize}>
+    <NavTexts fontSize={fontSize} linkIsPathname={linkIsPathname}>
       {!changeLanguage && (
         <span className="NavLinkSpan" onClick={clickNavLink}>
           {textLink}
