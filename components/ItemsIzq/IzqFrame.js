@@ -6,7 +6,6 @@ import ReactFullpage from "@fullpage/react-fullpage";
 
 import ProjectFrame from "./project/ProjectFrame";
 import { DataContext } from "../../context/DataContext";
-import Contact from "../../pages/contact";
 import ContactFrame from "../Contact/ContactFrame";
 
 const IzqStyled = styled.main`

@@ -26,7 +26,8 @@ const ContactStyled = styled.main`
       min-width: 90vw;
       max-width: 90vw;
       p {
-        margin: 50px 0px 70px 40px;
+        width: 100%;
+        margin: 50px 0px 70px 0px;
       }
     }
   }

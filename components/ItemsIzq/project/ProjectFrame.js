@@ -8,9 +8,7 @@ import ProjectInfo from "./ProjectInfo";
 import ThanksButton from "../../Thanks/ThanksButton";
 
 const StyledProject = styled.section`
-  border: 1px solid red;
   height: 100vh;
-  /* width: 70vw; */
   display: flex;
   flex-direction: column;
   justify-content: center;

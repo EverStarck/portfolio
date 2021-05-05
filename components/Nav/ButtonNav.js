@@ -15,6 +15,8 @@ const ButtonNavStyled = styled.div`
   right: 0;
   z-index: 7;
   opacity: 0;
+  background-image: url('./assets/avatar.webp');
+  background-size: cover;
   @media only screen and (max-width: 767px) {
     width: 60px;
     height: 60px;

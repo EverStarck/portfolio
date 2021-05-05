@@ -9,7 +9,6 @@ const HeroFrame = styled.section`
   max-width: 100vw;
   min-height: 100vh;
   height: 100%;
-  border: 1px solid red;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -37,7 +37,7 @@ const Info = () => {
 
       <div className="infoImgFrame">
         <Image
-          src="/assets/me.png"
+          src="/assets/me.webp"
           alt="Picture of the author (Ever Alejandro)"
           width={656}
           height={745}

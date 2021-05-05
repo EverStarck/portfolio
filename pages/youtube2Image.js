@@ -17,7 +17,6 @@ const ProjectFramePage = styled.main`
     min-width: 80vw;
     max-width: 80vw;
     margin: 0 auto;
-    border: 1px solid red;
     @media only screen and (max-width: 767px) {
       min-width: 90vw;
       max-width: 90vw;
@@ -72,7 +71,7 @@ const Youtube2Image = () => {
         <h1>Loading</h1>
       ) : (
         <>
-          <Nav isOnProject buttonNavWorks/>
+          <Nav isOnProject buttonNavWorks />
           <ProjectFramePage ref={(el) => (projectScreen = el)}>
             <div className="projectWidth">
               <Hero data={data[2]} />
