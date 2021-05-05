@@ -11,11 +11,19 @@ const SketchImageFrame = styled.div`
   display: flex;
   justify-content: ${(props) =>
     props.data.bocetsImg.length === 1 ? "center" : "space-between"};
-  /* border: 1px solid red; */
+  .bocetImgContainer {
+    position: relative;
+    width: 662px;
+    height: 839px;
+  }
   @media only screen and (max-width: 767px) {
     flex-direction: column;
     margin-top: 30px;
     row-gap: 30px;
+    .bocetImgContainer {
+      width: 100%;
+      height: 380px;
+    }
   }
 `;
 
@@ -23,13 +31,15 @@ const SketchImage = ({ data }) => {
   return (
     <SketchImageFrame data={data}>
       {data.bocetsImg.map((sketch) => (
-        <Image
-          key={sketch}
-          src={sketch}
-          alt={`photo of ${data.title} project sketches`}
-          width={662}
-          height={839}
-        />
+        <div className="bocetImgContainer">
+          <Image
+            key={sketch}
+            src={sketch}
+            alt={`photo of ${data.title} project sketches`}
+            layout="fill"
+            objectFit="contain"
+          />
+        </div>
       ))}
     </SketchImageFrame>
   );
