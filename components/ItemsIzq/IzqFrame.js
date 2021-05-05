@@ -6,6 +6,8 @@ import ReactFullpage from "@fullpage/react-fullpage";
 
 import ProjectFrame from "./project/ProjectFrame";
 import { DataContext } from "../../context/DataContext";
+import Contact from "../../pages/contact";
+import ContactFrame from "../Contact/ContactFrame";
 
 const IzqStyled = styled.main`
   background-color: var(--background);
@@ -42,8 +44,8 @@ const IzqFrame = () => {
                 <ProjectFrame projectData={projectData} />
               </div>
             ))}
-            <div className="section" data-anchor="slide5">
-              <h1>Contacto</h1>
+            <div className="section" data-anchor="contact">
+              <ContactFrame />
             </div>
           </ReactFullpage.Wrapper>
         )}
