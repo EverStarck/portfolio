@@ -23,6 +23,7 @@ const DevelopmentFrame = styled.section`
   @media only screen and (max-width: 767px) {
     min-width: 90vw;
     max-width: 90vw;
+    min-height: 70vh;
     scroll-snap-align: unset;
     .devTextFrame {
       width: 100%;
@@ -55,7 +56,7 @@ const Development = ({ data }) => {
       <div className="devImage">
         <Image
           src={data.developmentImg}
-          alt="Picture of the author"
+          alt={`Screenshot of figma ${data.title} project design`}
           width={1000}
           height={500}
         />

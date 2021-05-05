@@ -2,57 +2,52 @@
   {
     "title": "Google Clone",
     "anchor": "googleClone",
-    "image": "/projects/googleCover.webp",
-    "mobileImage": "/projects/googleMobile.webp",
+    "image": "/projects/google/coverDesktop.webp",
+    "mobileImage": "/projects/google/coverMobile.webp",
     "description": "googleDesc",
     "url": "https://googl.everstarck.com",
     "github": "https://github.com/EverStarck/GoogleClone ",
     "madeWith": ["nextjs", "emotion", "python", "flask"],
-    "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "screenShots": ["/projects/google/ssMobile.webp", "/projects/google/ssPC.webp"],
     "developmentText": ["googleDev1", "googleDev2"],
-    "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
-    "lastImgs": [
-      "/projects/performance.webp",
-      "/projects/boceto1.webp",
-      "/projects/boceto2.webp",
-      "/projects/boceto3.webp"
-    ],
+    "developmentImg": "/projects/google/designs.webp",
+    "lastImgPerformance": "/projects/google/lighthouse.webp",
+    "bocetsImg": ["/projects/google/sketch1.webp", "/projects/google/sketch2.webp"],
     "thxButton": true
   },
   {
     "title": "Weather App",
     "anchor": "weatherApp",
-    "image": "/projects/weatherAppCover.webp",
-    "mobileImage": "/projects/weatherMobile.webp",
+    "image": "/projects/weather/coverDesktop.webp",
+    "mobileImage": "/projects/weather/coverMobile.webp",
     "description": "weatherDesc",
     "url": "https://weather.everstarck.com",
     "github": "https://github.com/EverStarck/WeatherApp",
     "madeWith": ["nextjs", "emotion", "figma"],
-    "screenShots": ["/projects/weatherMobil.png", "/projects/weatherPC.png"],
+    "screenShots": [
+      "/projects/weather/ssMobil.webp",
+      "/projects/weather/ssPC.webp"
+    ],
     "developmentText": ["weatherDev1", "weatherDev2"],
-    "developmentImg": "/projects/weatherDesigns.png",
-    "lastImgPerformance": "/projects/weatherLighthouse.png",
-    "bocetsImg": ["/projects/weatherBocet.png"],
+    "developmentImg": "/projects/weather/designs.webp",
+    "lastImgPerformance": "/projects/weather/lighthouse.webp",
+    "bocetsImg": ["/projects/weather/sketch.webp"],
     "thxButton": false
   },
   {
     "title": "Youtube2Image",
     "anchor": "youtube2Image",
-    "image": "/projects/yt2imageCover.webp",
-    "mobileImage": "/projects/yt2imageMobile.webp",
+    "image": "/projects/yt2img/coverDesktop.webp",
+    "mobileImage": "/projects/yt2img/coverMobile.webp",
     "description": "yt2Desc",
     "url": "https://yt2img.everstarck.com",
     "github": "https://github.com/EverStarck/YouTube2Image",
     "madeWith": ["nextjs", "emotion", "python", "flask"],
-    "screenShots": ["/projects/mobile.webp", "/projects/desktop.webp"],
+    "screenShots": ["/projects/yt2img/ssMobil.webp", "/projects/yt2img/ssPC.webp"],
     "developmentText": ["yt2Dev1", "yt2Dev2"],
-    "developmentImg": ["/projects/mobile.webp", "/projects/desktop.webp"],
-    "lastImgs": [
-      "/projects/performance.webp",
-      "/projects/boceto1.webp",
-      "/projects/boceto2.webp",
-      "/projects/boceto3.webp"
-    ],
+    "developmentImg": "/projects/yt2img/designs.webp",
+    "lastImgPerformance": "/projects/yt2img/lighthouse.webp",
+    "bocetsImg": ["/projects/yt2img/sketch1.webp", "/projects/yt2img/sketch2.webp", "/projects/yt2img/sketch2.webp"],
     "thxButton": false
   }
 ]
