@@ -7,15 +7,14 @@ const ButtonNavStyled = styled.div`
   width: 102px;
   height: 100px;
   background-color: var(--yellow);
-  cursor: pointer;
+  cursor: ${(props) => (props.buttonNavWorks ? "pointer" : "crosshair")};
   border-radius: 8px 0px 0px 8px;
   position: fixed;
-  /* top: 70px; */
   bottom: 80%;
   right: 0;
   z-index: 7;
   opacity: 0;
-  background-image: url('./assets/avatar.webp');
+  background-image: url("./assets/avatar.webp");
   background-size: cover;
   @media only screen and (max-width: 767px) {
     width: 60px;
@@ -67,6 +66,7 @@ const ButtonNav = ({ buttonNavWorks, showNav }) => {
     <ButtonNavStyled
       ref={(el) => (buttonNav = el)}
       onClick={buttonNavClick}
+      buttonNavWorks={buttonNavWorks}
     ></ButtonNavStyled>
   );
 };
