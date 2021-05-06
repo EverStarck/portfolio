@@ -1,13 +1,11 @@
 {
-  "h1": "Hola",
-  "button": "Cambiar language",
   "Close": "Cerrar",
   "Home": "Inicio",
   "About": "Acerca",
   "Contact": "Contacto",
   "thanks": "Gracias!",
-  "thanksText1": "Eres la persona numero",
-  "thanksText2": "que hace click en el corazon!",
+  "thanksText1": "Eres la persona #",
+  "thanksText2": "que hace click en el corazón!",
   "sayHello": "Di hola 👋",
   "letsBuild": "Vamos a construir juntos  🚀",
   "contactText": "No dude en comunicarse si está buscando un desarrollador, tiene una pregunta o simplemente desea platicar"

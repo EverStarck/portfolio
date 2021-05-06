@@ -181,7 +181,6 @@ const Nav = ({
   }, [animationReady]);
 
   const router = useRouter();
-  console.log(router);
 
   return (
     <>

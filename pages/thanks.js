@@ -54,6 +54,7 @@ const ThanksPage = styled.main`
     }
     align-items: flex-start;
     .textThanks {
+      padding: 0px 20px;
       align-self: center;
     }
     .goBackHeart {
@@ -63,7 +64,7 @@ const ThanksPage = styled.main`
   }
 `;
 
-const Thanks = () => {
+const Thanks = ({ counter }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const { t } = useTranslation("common");
@@ -87,7 +88,8 @@ const Thanks = () => {
       <div className="textThanks" ref={(el) => (heartText = el)}>
         <h1>{t("thanks")}</h1>
         <h2>
-          {t("thanksText1")} <strong>401</strong> {t("thanksText2")}
+          {t("thanksText1")}<strong>{counter.counter}</strong>{" "}
+          {t("thanksText2")}
         </h2>
         <Link href="/">
           <div className="goBackHeart">
@@ -101,8 +103,22 @@ const Thanks = () => {
 
 export default Thanks;
 
-export const getStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale, ["common"])),
-  },
-});
+export async function getStaticProps({ locale }) {
+  const res = await fetch(process.env.COUNTERPAGE);
+  let counter;
+  if (!res.ok) {
+    const random = Math.random() * (8418 - 509) + 509;
+    counter = {
+      counter: Math.trunc(random),
+    };
+  } else {
+    counter = await res.json();
+  }
+
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      counter,
+    },
+  };
+}
