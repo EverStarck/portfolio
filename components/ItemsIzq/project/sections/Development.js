@@ -33,6 +33,11 @@ const DevelopmentFrame = styled.section`
         }
       }
     }
+    .devImage {
+      margin-top: 50px;
+      padding-bottom: 25px;
+
+    }
   }
 `;
 

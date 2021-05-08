@@ -8,7 +8,7 @@ const SkillFrame = styled.div`
   margin-bottom: 14px;
   .skillIcon {
     margin: 0;
-    font-size: 24px;
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
     cursor: default;
   }
   .skillText {

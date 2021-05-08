@@ -8,6 +8,10 @@ const SkillsFrame = styled.section`
   flex-direction: column;
   flex-wrap: wrap;
   width: 100%;
+
+  @media only screen and (max-width: 330px) {
+    height: auto;
+  }
 `;
 
 const OtherFrame = styled.section`
