@@ -1,6 +1,5 @@
 import { useContext, useEffect, useRef } from "react";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { gsap } from "gsap";
 import styled from "@emotion/styled";
@@ -67,7 +66,7 @@ const ThanksPage = styled.main`
 const Thanks = ({ counter }) => {
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
-  const { t } = useTranslation("common");
+  const router = useRouter();
   let heartText = useRef(null);
 
   useEffect(() => {
@@ -86,10 +85,15 @@ const Thanks = ({ counter }) => {
     <ThanksPage>
       <p className="heartThanks">💛</p>
       <div className="textThanks" ref={(el) => (heartText = el)}>
-        <h1>{t("thanks")}</h1>
+        <h1>{router.locale === "en" ? "Thanks!" : "Gracias!"}</h1>
         <h2>
-          {t("thanksText1")}<strong>{counter.counter}</strong>{" "}
-          {t("thanksText2")}
+          {router.locale === "en"
+            ? "You are the person #"
+            : "Eres la persona #"}
+          <strong>{counter.counter}</strong>{" "}
+          {router.locale === "en"
+            ? "who make click on the heart!"
+            : "que hace click en el corazón!"}
         </h2>
         <Link href="/">
           <div className="goBackHeart">
@@ -103,7 +107,7 @@ const Thanks = ({ counter }) => {
 
 export default Thanks;
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps() {
   const res = await fetch(process.env.COUNTERPAGE);
   let counter;
   if (!res.ok) {
@@ -117,7 +121,6 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
       counter,
     },
   };
