@@ -4,11 +4,13 @@ import { useRouter } from "next/router";
 import { useContext, useEffect, useState } from "react";
 import { AnimationContext } from "../../context/AnimationContext";
 
-const NavTexts = styled.a`
+const NavTexts = styled.p`
+  margin: 0;
   cursor: pointer;
   .NavLinkSpan {
     /* color: var(--white); */
-    color: ${(props) => (props.linkIsPathname ? "var(--blue)" : "var(--white)")};
+    color: ${(props) =>
+      props.linkIsPathname ? "var(--blue)" : "var(--white)"};
     font-size: ${(props) => props.fontSize};
     font-weight: 600;
     transition: 0.4s ease;
@@ -68,6 +70,7 @@ const TextLink = ({
       {changeLanguage && (
         <Link
           href={router.pathname}
+          passHref
           locale={router.locale === "en" ? "es" : "en"}
         >
           <span className="NavLinkSpan">EN/ES</span>

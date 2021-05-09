@@ -11,6 +11,7 @@ import Mockups from "../components/ItemsIzq/project/sections/Mockups";
 import Development from "../components/ItemsIzq/project/sections/Development";
 import Sketchs from "../components/ItemsIzq/project/sections/Sketchs";
 import Nav from "../components/Nav/Nav";
+import HeadLayout from "../components/HeadLayout";
 
 const ProjectFramePage = styled.main`
   .projectWidth {
@@ -66,7 +67,15 @@ const GoogleClone = () => {
   }, [animationReady]);
 
   return (
-    <>
+    <HeadLayout
+      title="Google Clone Project || EverStarck"
+      description="See my Google Clone project, where I made a functional Google from scratch, and no, this is not just a redirect 🤯"
+      keywords="Google, clone, google chrome, everstarck, starck, portfolio"
+      ogUrl="https://www.googl.everstarck.com"
+      ogTitle="👀 See my Google Clone project"
+      ogImg="https://googl.everstarck.com/glone.png"
+      metaIconFolder="google"
+    >
       {data.length === 0 ? (
         <h1>Loading</h1>
       ) : (
@@ -84,7 +93,7 @@ const GoogleClone = () => {
           </ProjectFramePage>
         </>
       )}
-    </>
+    </HeadLayout>
   );
 };
 

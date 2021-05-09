@@ -11,6 +11,7 @@ import Mockups from "../components/ItemsIzq/project/sections/Mockups";
 import Development from "../components/ItemsIzq/project/sections/Development";
 import Sketchs from "../components/ItemsIzq/project/sections/Sketchs";
 import Nav from "../components/Nav/Nav";
+import HeadLayout from "../components/HeadLayout";
 
 const ProjectFramePage = styled.main`
   .projectWidth {
@@ -66,12 +67,20 @@ const WeatherApp = () => {
   }, [animationReady]);
 
   return (
-    <>
+    <HeadLayout
+      title="Weather App Project || EverStarck"
+      description="Check out my weather app project, where I made an app that shows you the latest weather information for today and the next 5 days, and you too can enjoy beautiful pictures!"
+      keywords="Weather info, openweathermaps, Weather next days, pixabay, everstarck, starck, portfolio"
+      ogUrl="https://www.weather.everstarck.com"
+      ogTitle="👀 See my Weather App project"
+      ogImg="https://weather.everstarck.com/MetaTagImage.png"
+      metaIconFolder="weather"
+    >
       {data.length === 0 ? (
         <h1>Loading</h1>
       ) : (
         <>
-          <Nav isOnProject buttonNavWorks/>
+          <Nav isOnProject buttonNavWorks />
           <ProjectFramePage ref={(el) => (projectScreen = el)}>
             <div className="projectWidth">
               <Hero data={data[1]} />
@@ -84,7 +93,7 @@ const WeatherApp = () => {
           </ProjectFramePage>
         </>
       )}
-    </>
+    </HeadLayout>
   );
 };
 

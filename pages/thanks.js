@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import styled from "@emotion/styled";
 import { AnimationContext } from "../context/AnimationContext";
 import Arrow from "../components/Thanks/Arrow";
+import HeadLayout from "../components/HeadLayout";
 
 const ThanksPage = styled.main`
   background: var(--background);
@@ -82,26 +83,28 @@ const Thanks = ({ counter }) => {
   }, []);
 
   return (
-    <ThanksPage>
-      <p className="heartThanks">💛</p>
-      <div className="textThanks" ref={(el) => (heartText = el)}>
-        <h1>{router.locale === "en" ? "Thanks!" : "Gracias!"}</h1>
-        <h2>
-          {router.locale === "en"
-            ? "You are the person #"
-            : "Eres la persona #"}
-          <strong>{counter.counter}</strong>{" "}
-          {router.locale === "en"
-            ? "who make click on the heart!"
-            : "que hace click en el corazón!"}
-        </h2>
-        <Link href="/">
-          <div className="goBackHeart">
-            <Arrow arrowWidth="50" arrowHeight="30" />
-          </div>
-        </Link>
-      </div>
-    </ThanksPage>
+    <HeadLayout title="💛 Thanks! || EverStarck">
+      <ThanksPage>
+        <p className="heartThanks">💛</p>
+        <div className="textThanks" ref={(el) => (heartText = el)}>
+          <h1>{router.locale === "en" ? "Thanks!" : "Gracias!"}</h1>
+          <h2>
+            {router.locale === "en"
+              ? "You are the person #"
+              : "Eres la persona #"}
+            <strong>{counter.counter}</strong>{" "}
+            {router.locale === "en"
+              ? "who make click on the heart!"
+              : "que hace click en el corazón!"}
+          </h2>
+          <Link href="/">
+            <div className="goBackHeart">
+              <Arrow arrowWidth="50" arrowHeight="30" />
+            </div>
+          </Link>
+        </div>
+      </ThanksPage>
+    </HeadLayout>
   );
 };
 

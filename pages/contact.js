@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 import ContactFrame from "../components/Contact/ContactFrame";
+import HeadLayout from "../components/HeadLayout";
 import Nav from "../components/Nav/Nav";
 
 const Contact = () => {
@@ -24,12 +25,12 @@ const Contact = () => {
   }, []);
 
   return (
-    <>
+    <HeadLayout title="Contact me! || EverStarck">
       <div ref={(el) => (contentContact = el)}>
         <ContactFrame />
       </div>
       <Nav />
-    </>
+    </HeadLayout>
   );
 };
 

@@ -38,7 +38,6 @@ const ProjectImage = ({ goToProject, projectData, isOnPage }) => {
   // Context
   const { animationReady } = useContext(AnimationContext);
   const { moveImg } = animationReady;
-  console.log(isOnPage);
   return (
     <ProjectImageStyled
       onClick={goToProject}
