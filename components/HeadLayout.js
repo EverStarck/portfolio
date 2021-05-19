@@ -3,10 +3,10 @@ import Head from "next/head";
 export default function Layout({
   children,
   title = "🌟 Welcome to my portfolio || EverStarck",
-  description = "👀 Are you looking for a developer? See my portfoliom, where you can see my projects and contact me!",
-  keywords = "",
+  description = "👀 Looking for a developer? Look at my portfolio, where you can see more about me, my projects and contact me!",
+  keywords = "developer, fullstack, portfolio, seo, dev, coding, starck",
   ogUrl = "https://www.everstarck.com",
-  ogTitle = "Lets check my portfolio!",
+  ogTitle = "Let's see my portfolio!",
   ogImg = "https://everstarck.com/MetaTagImage.png",
   metaIconFolder = "portfolio",
 }) {
@@ -35,7 +35,7 @@ export default function Layout({
         <meta property="og:title" content={ogTitle} />
         <meta property="og:description" content={description} />
         <meta property="og:image" content={ogImg} />
-        <link rel="canonical" href="https://www.everstarck.com" />
+        <link rel="canonical" href="https://twitter.com/EverStarck" />
         <link rel="icon" href={`/metaIcons/${metaIconFolder}/favicon.ico`} />
         <link
           rel="apple-touch-icon"
