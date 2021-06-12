@@ -26,6 +26,7 @@ const TextLink = ({
   fontSize = "clamp(3rem, 5vw, 4rem)",
   changeLanguage = false,
   goTo = "/",
+  external = false,
 }) => {
   const [linkIsPathname, setLinkIsPathname] = useState(false);
   // Context
@@ -53,7 +54,7 @@ const TextLink = ({
   // Set color to blue
   useEffect(() => {
     if (!changeLanguage) {
-      if (goTo === router.pathname || `/${goTo}` === router.pathname) {
+      if (!external && goTo === router.pathname || `/${goTo}` === router.pathname) {
         setLinkIsPathname(true);
       }
     }
@@ -74,6 +75,15 @@ const TextLink = ({
           locale={router.locale === "en" ? "es" : "en"}
         >
           <span className="NavLinkSpan">EN/ES</span>
+        </Link>
+      )}
+
+      {external && (
+        <Link
+          href={goTo}
+          passHref
+        >
+          <span className="NavLinkSpan">Blog</span>
         </Link>
       )}
     </NavTexts>
