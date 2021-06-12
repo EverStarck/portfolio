@@ -33,7 +33,7 @@ const ContactButtons = ({ aAnimation, buttonsFlex = false }) => {
   return (
     <ContactButtonsFrame buttonsFlex={buttonsFlex}>
       <Button
-        aHref="mailto:mail@mail.com"
+        aHref="mailto:contact@everstarck.com"
         aPadding="10px 50px"
         aText={t("sayHello")}
         aColor="var(--blue)"
