@@ -17,8 +17,9 @@ const ButtonStyled = styled.a`
   padding: ${(props) => props.aPadding};
   width: ${(props) => props.aWidth};
   height: ${(props) => props.aWidth};
+  align-self: ${(props) => props.alignSelf};
   transition: 0.2s ease-in-out;
-  transform: ${(props) => props.aAnimation ? "translateY(100px)" : ""};
+  transform: ${(props) => (props.aAnimation ? "translateY(100px)" : "")};
   &:hover {
     transform: translateY(-5px);
   }
@@ -34,6 +35,7 @@ const Button = ({
   aPadding = "6px 50px",
   aWidth,
   aAnimation = true,
+  alignSelf,
 }) => {
   let buttonRef = useRef(null);
   useEffect(() => {
@@ -50,6 +52,7 @@ const Button = ({
       aWidth={aWidth}
       aBgImg={aBgImg}
       aAnimation={aAnimation}
+      alignSelf={alignSelf}
       href={aHref}
       rel="noopener noreferrer"
       target="_blank"

@@ -36,7 +36,7 @@ const Skills = ({
   skillFontSize,
 }) => {
   const OtherSkill = () => {
-    return skills[1].map((skill) => <Skill skill={skill} />);
+    return skills[1].map((skill) => <Skill key={skill.text} skill={skill} />);
   };
   return (
     <>

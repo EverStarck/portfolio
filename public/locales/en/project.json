@@ -9,7 +9,8 @@
 
   "googleDesc": "🤯 A functional google.com clone made from scratch",
   "googleDev1": "Basically google.com but this is not just the landing page or a redirect.",
-  "googleDev2": "Google Clone gets the information from an API that I made with Python and Flask.",
+  "googleDev2": "Google Clone gets the information from an API that I made with Python and Flask. In SEO it has a 75 rating because the page isn't indexed on the main page of Google.com",
+  "googleDev3": "I made this landing page based on the design of the main google page, so it was not necessary to make a design system to carry it out.",
 
   "yt2Desc": "⬇ The Tony Starck of the Youtube channel APIs",
   "yt2Dev1": "The solution to my own problem.",

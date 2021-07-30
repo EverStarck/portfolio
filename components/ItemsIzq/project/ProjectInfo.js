@@ -81,6 +81,7 @@ const ProjectInfo = ({ goToProject, projectData, isOnPage }) => {
               aHref={projectData.url}
               aText="Visit Site"
               aColor="var(--black)"
+              alignSelf="center"
             />
             <Button
               aHref={projectData.github}
