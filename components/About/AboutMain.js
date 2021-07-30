@@ -16,7 +16,6 @@ const AboutMainFrame = styled.main`
   align-items: center;
   padding: 50px 0;
   @media only screen and (max-width: 767px) {
-    min-width: 110vw;
     max-width: 110vw;
     .aboutMainContainer {
       min-width: 90vw;

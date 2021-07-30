@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+      <urlset xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" 
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" 
+      xmlns:xhtml="http://www.w3.org/1999/xhtml">
+      
+	<url>
+		<loc>https://everstarck.com/about</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://everstarck.com/contact</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://everstarck.com/googleClone</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://everstarck.com/thanks</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://everstarck.com/weatherApp</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://everstarck.com/youtube2Image</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+
+	<url>
+		<loc>https://everstarck.com/</loc>
+		<lastmod>2021-07-29</lastmod>
+	</url>
+</urlset>
