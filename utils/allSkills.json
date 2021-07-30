@@ -1,0 +1,114 @@
+[
+  {
+    "0": [
+      {
+        "text": "JavaScript",
+        "image": "/assets/icons/javascript.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "HTML",
+        "image": "/assets/icons/html.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "CSS",
+        "image": "/assets/icons/css.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "SASS",
+        "image": "/assets/icons/sass.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "React",
+        "image": "/assets/icons/react.svg",
+        "width": "31.44px",
+        "height": "28px"
+      },
+      {
+        "text": "Nextjs",
+        "image": "/assets/icons/nextjsWhite.svg",
+        "width": "46.4px",
+        "height": "28px"
+      },
+      {
+        "text": "Styled-Components",
+        "image": "/assets/icons/styled.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "Python",
+        "image": "/assets/icons/python.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "Flask",
+        "image": "/assets/icons/flaskWhite.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "Git",
+        "image": "/assets/icons/git.svg",
+        "width": "28px",
+        "height": "28px"
+      }
+    ],
+    "1": [
+      {
+        "text": "Figma",
+        "image": "/assets/icons/figma.svg",
+        "width": "18.67px",
+        "height": "28px"
+      },
+      {
+        "text": "Photoshop",
+        "image": "/assets/icons/photoshop.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "GitHub",
+        "image": "/assets/icons/github.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "VSCode",
+        "image": "/assets/icons/vscode.svg",
+        "width": "28px",
+        "height": "28px"
+      }
+    ]
+  },
+  {
+    "0": [
+      { "text": "Teamwork", "image": "👨‍👩‍👦‍" },
+      { "text": "ProblemSolving", "image": "🤔" },
+      { "text": "SelfMotivation", "image": "💪" },
+      { "text": "Creativity", "image": "🖼" },
+      { "text": "Responsibility", "image": "⏰" },
+      { "text": "Comunication", "image": "🔊" },
+      { "text": "Empaty", "image": "💛" },
+      { "text": "ConflictResolution", "image": "🤝" }
+    ]
+  },
+  {
+    "0": [
+      { "text": "UI/UX", "image": "✏" },
+      { "text": "Pixel Art", "image": "🖼" },
+      { "text": "Security", "image": "💻" },
+      { "text": "Design", "image": "🎨" },
+      { "text": "VideoGames", "image": "🎮" },
+      { "text": "Music", "image": "🎹" }
+    ]
+  }
+]

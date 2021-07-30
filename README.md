@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Twitter Follow](https://img.shields.io/twitter/follow/EverStarck?style=social)
 
-## Getting Started
+<!-- PROJECT LOGO -->
+<hr />
+<br />
+<p align="center">
+  <a href="https://everstarck.com">
+    <img src="public/assets/avatar.webp" alt="Logo" width="64" height="64" style="border-radius:50%">
+  </a>
 
-First, run the development server:
+  <h2 align="center">EverStarck</h2>
+  <p align="center">
+    💻Web Developer and Software Engineering Student 🎒<br />
+    🧾 Once an app tester
+    <br />
+    <br />
+    <a href="https://everstarck.com">Visit site</a>
+    ·
+    <a href="https://github.com/EverStarck/portfolio/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/EverStarck/GoogleClone/issues">Share feedback</a>
+  </p>
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<!-- ABOUT THE PROJECT -->
+<br />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About the portfolio
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+[![ScreenShot of EverStarck portfolio][product-screenshot]](https://everstarck.com)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+I designed the portfolio from scratch with figma and built it with NextJs and Node.
+  It shows 3 of my projects, but they are not all I have. I have made quite a few sites that handle requests and also some CRUD. I chose those projects because they are the ones that seem most interesting to me. A Google clone that works without redirects? How can that be possible?
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Contact
+Feel free to reach out if you're looking for a developer, have a question, or just want to connect
+<br/>
+[@EverStarck](https://twitter.com/EverStarck)
+[LinkedIn](https://www.linkedin.com/in/everstarck/)
 
-## Learn More
+<!-- MARKDOWN LINKS & IMAGES -->
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[product-screenshot]: public/glone.png

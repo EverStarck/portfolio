@@ -1,0 +1,18 @@
+{
+  "visitSite": "Visite site",
+  "madeWith": "Made With",
+  "goBack": "Go back",
+
+  "weatherDesc": "🔎 Get the latest weather information for today and the next 5 days and also enjoy beautiful images of it!",
+  "weatherDev1": "The wheel was not reinvented. It is one more weather application, only that Weather App provides you with images of the place you have searched for.",
+  "weatherDev2": "Initially 3 APIs were working. Then I decided to make my own way to obtain the user's IP, so that when I entered I would obtain the information of where he lives. But the life... I decided to only use 2.",
+
+  "googleDesc": "🤯 A functional google.com clone made from scratch",
+  "googleDev1": "Basically google.com but this is not just the landing page or a redirect.",
+  "googleDev2": "Google Clone gets the information from an API that I made with Python and Flask. In SEO it has a 75 rating because the page isn't indexed on the main page of Google.com",
+  "googleDev3": "I made this landing page based on the design of the main google page, so it was not necessary to make a design system to carry it out.",
+
+  "yt2Desc": "⬇ The Tony Starck of the Youtube channel APIs",
+  "yt2Dev1": "The solution to my own problem.",
+  "yt2Dev2": "There are no pages to download the banner or avatar of a YouTube channel, and that's exactly what this page is for. I would like it to be faster, because the response from YouTube is not as fast as I would like 😥"
+}

@@ -1,0 +1,14 @@
+<svg width="29" height="29" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14.618 2.338c-6.212 0-5.82 2.686-5.82 2.686v2.791h5.909v.875H6.446s-3.977-.49-3.977 5.815c0 6.304 3.511 6.047 3.511 6.047h2.027v-2.94S7.894 14.1 11.42 14.1h5.917s3.3.053 3.3-3.195v-5.33s.5-3.248-5.987-3.248l-.032.01zm-3.265 1.87a1.062 1.062 0 11-1.035 1.088v-.017a1.062 1.062 0 011.062-1.063l-.027-.008z" fill="url(#vscode-icons:file-type-python__paint0_linear)"/>
+  <path d="M14.793 26.671c6.213 0 5.82-2.695 5.82-2.695v-2.782h-5.907v-.875h8.286s3.977.444 3.977-5.823c0-6.268-3.512-6.048-3.512-6.048h-2.053v2.902s.113 3.511-3.413 3.511h-5.92s-3.302-.05-3.302 3.199v5.365s-.5 3.248 5.986 3.248h.035l.003-.002zm3.266-1.878a1.062 1.062 0 111.035-1.089v.026a1.062 1.062 0 01-1.063 1.063h.027z" fill="url(#vscode-icons:file-type-python__paint1_linear)"/>
+  <defs>
+    <linearGradient id="vscode-icons:file-type-python__paint0_linear" x1="4.89" y1="4.72" x2="16.516" y2="16.32" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#387EB8"/>
+      <stop offset="1" stop-color="#366994"/>
+    </linearGradient>
+    <linearGradient id="vscode-icons:file-type-python__paint1_linear" x1="11.768" y1="12.276" x2="25.05" y2="23.872" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFE052"/>
+      <stop offset="1" stop-color="#FFC331"/>
+    </linearGradient>
+  </defs>
+</svg>
