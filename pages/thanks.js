@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useState, useContext, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { gsap } from "gsap";
@@ -64,13 +64,26 @@ const ThanksPage = styled.main`
   }
 `;
 
-const Thanks = ({ counter }) => {
+const Thanks = () => {
+  const [counter, setCounter] = useState("...");
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const router = useRouter();
   let heartText = useRef(null);
 
+  async function getCounter() {
+    const res = await fetch(process.env.NEXT_PUBLIC_COUNTERPAGE);
+    if (!res.ok) {
+      const random = Math.random() * (8418 - 509) + 509;
+      setCounter(Math.trunc(random));
+    } else {
+      let resJson = await res.json();
+      setCounter(resJson.counter);
+    }
+  }
+
   useEffect(() => {
+    getCounter();
     gsap.to(heartText, {
       opacity: 1,
       duration: 0.4,
@@ -92,7 +105,7 @@ const Thanks = ({ counter }) => {
             {router.locale === "en"
               ? "You are the person #"
               : "Eres la persona #"}
-            <strong>{counter.counter}</strong>{" "}
+            <strong>{counter}</strong>{" "}
             {router.locale === "en"
               ? "who make click on the heart!"
               : "que hace click en el corazón!"}
@@ -109,22 +122,3 @@ const Thanks = ({ counter }) => {
 };
 
 export default Thanks;
-
-export async function getServerSideProps() {
-  const res = await fetch(process.env.COUNTERPAGE);
-  let counter;
-  if (!res.ok) {
-    const random = Math.random() * (8418 - 509) + 509;
-    counter = {
-      counter: Math.trunc(random),
-    };
-  } else {
-    counter = await res.json();
-  }
-
-  return {
-    props: {
-      counter,
-    },
-  };
-}
