@@ -27,7 +27,7 @@
 
 ## About the portfolio
 
-[![ScreenShot of EverStarck portfolio][product-screenshot]](https://www.everstarck.com/MetaTagImage.png)
+![ScreenShot of EverStarck portfolio](https://www.everstarck.com/MetaTagImage.png)
 
 I designed the portfolio from scratch with figma and built it with NextJs and Node.
   It shows 3 of my projects, but they are not all I have. I have made quite a few sites that handle requests and also some CRUD. I chose those projects because they are the ones that seem most interesting to me. A Google clone that works without redirects? How can that be possible?
