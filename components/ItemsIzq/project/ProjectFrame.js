@@ -31,6 +31,7 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
   const router = useRouter();
   // GSAP
   let project = useRef(null);
+  let projectFrameInfo = useRef(null);
   let tl = gsap.timeline({ defaults: { duration: 0.7 } });
 
   const goToProject = () => {
@@ -43,6 +44,7 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
     // Animation when click on one project
     if (window.innerWidth > 767) {
       tl.to(project, { width: "110vw", delay: 0.5 });
+      tl.to(projectFrameInfo, { position: "relative", "left": "-100px" }, "-=.6");
     } else {
       tl.to(project, { opacity: 0, duration: 0.5 });
     }
@@ -91,7 +93,7 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
     <>
       {projectData.thxButton && <ThanksButton />}
       <StyledProject ref={(el) => (project = el)} onMouseMove={onMouseMove}>
-        <div className="projectCointaner">
+        <div className="projectCointaner" ref={(el) => (projectFrameInfo = el)}>
           <ProjectImage
             goToProject={goToProject}
             projectData={projectData}

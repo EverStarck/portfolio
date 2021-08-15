@@ -54,7 +54,10 @@ const TextLink = ({
   // Set color to blue
   useEffect(() => {
     if (!changeLanguage) {
-      if (!external && goTo === router.pathname || `/${goTo}` === router.pathname) {
+      if (
+        (!external && goTo === router.pathname) ||
+        `/${goTo}` === router.pathname
+      ) {
         setLinkIsPathname(true);
       }
     }
@@ -62,29 +65,28 @@ const TextLink = ({
 
   return (
     <NavTexts fontSize={fontSize} linkIsPathname={linkIsPathname}>
-      {!changeLanguage && (
+      {changeLanguage ? (
+        <Link
+          href={router.pathname}
+          locale={router.locale === "en" ? "es" : "en"}
+        >
+          <span className="NavLinkSpan">EN/ES</span>
+        </Link>
+      ) : (
         <span className="NavLinkSpan" onClick={clickNavLink}>
           {textLink}
         </span>
       )}
 
-      {changeLanguage && (
-        <Link
-          href={router.pathname}
-          passHref
-          locale={router.locale === "en" ? "es" : "en"}
-        >
-          <span className="NavLinkSpan">EN/ES</span>
-        </Link>
-      )}
-
       {external && (
-        <Link
+        <a
           href={goTo}
-          passHref
+          target="_blank"
+          rel="noopener noreferrer"
+          className="NavLinkSpan"
         >
-          <span className="NavLinkSpan">Blog</span>
-        </Link>
+          Blog
+        </a>
       )}
     </NavTexts>
   );
