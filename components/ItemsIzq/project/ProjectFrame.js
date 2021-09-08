@@ -38,16 +38,17 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
     setAnimationReady({
       ...animationReady,
       projectClick: true,
+      navClickLink: false,
       navButton: false,
     });
 
     // Animation when click on one project
-    if (window.innerWidth > 767) {
-      tl.to(project, { width: "110vw", delay: 0.5 });
-      tl.to(projectFrameInfo, { position: "relative", "left": "-100px" }, "-=.6");
-    } else {
-      tl.to(project, { opacity: 0, duration: 0.5 });
-    }
+    // if (window.innerWidth > 767) {
+    //   tl.to(project, { width: "110vw", delay: 0.5 });
+    //   tl.to(projectFrameInfo, { position: "relative", "left": "-100px" }, "-=.6");
+    // } else {
+    tl.to(project, { opacity: 0, duration: 0.5 });
+    // }
 
     // Wait end the animation to redirect at project link
     if (window.innerWidth > 767) {

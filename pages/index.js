@@ -4,11 +4,9 @@ import HeadLayout from "../components/HeadLayout";
 
 export default function Home() {
   return (
-    <>
-      <HeadLayout>
-        <Main />
-      </HeadLayout>
-    </>
+    <HeadLayout>
+      <Main />
+    </HeadLayout>
   );
 }
 

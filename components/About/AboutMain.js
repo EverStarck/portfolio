@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import styled from "@emotion/styled";
+import fadeIn from "../../utils/FadeIn";
 import Info from "./Info";
 import Skills from "./Skills";
 import allSkills from "../../utils/allSkills.json";
@@ -29,18 +29,7 @@ const AboutMain = () => {
   let contentAbout = useRef(null);
   // Animation when enter to web
   useEffect(() => {
-    gsap.fromTo(
-      contentAbout,
-      {
-        duration: 0,
-        opacity: "0",
-      },
-      {
-        duration: 1,
-        opacity: "1",
-        ease: "power4.inOut",
-      }
-    );
+    fadeIn(contentAbout);
   }, []);
 
   return (
