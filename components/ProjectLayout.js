@@ -12,6 +12,7 @@ import Sketchs from "./ItemsIzq/project/sections/Sketchs";
 import Nav from "./Nav/Nav";
 
 const ProjectFramePage = styled.main`
+  opacity: 0;
   .projectWidth {
     min-width: 80vw;
     max-width: 80vw;

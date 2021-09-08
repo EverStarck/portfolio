@@ -14,6 +14,7 @@ const ContactStyled = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
   .aboutMainContainer {
     p {
       width: 50%;

@@ -15,11 +15,16 @@ const AboutMainFrame = styled.main`
   justify-content: center;
   align-items: center;
   padding: 50px 0;
+  opacity: 0;
+  .aboutMainContainer {
+    padding: 0 50px;
+  }
   @media only screen and (max-width: 767px) {
     max-width: 110vw;
     .aboutMainContainer {
       min-width: 90vw;
       max-width: 90vw;
+      padding: 0;
     }
   }
 `;
