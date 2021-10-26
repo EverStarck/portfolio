@@ -45,7 +45,7 @@ const AboutMain = () => {
         <Skills
           skills={allSkills[0]}
           h2Text={t("Skills")}
-          skillsHeight="250px"
+          skillsHeight="300px"
         />
         <Skills
           skills={allSkills[1]}

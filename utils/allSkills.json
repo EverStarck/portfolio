@@ -2,26 +2,14 @@
   {
     "0": [
       {
-        "text": "JavaScript",
-        "image": "/assets/icons/javascript.svg",
-        "width": "28px",
-        "height": "28px"
-      },
-      {
         "text": "HTML",
         "image": "/assets/icons/html.svg",
         "width": "28px",
         "height": "28px"
       },
       {
-        "text": "CSS",
-        "image": "/assets/icons/css.svg",
-        "width": "28px",
-        "height": "28px"
-      },
-      {
-        "text": "SASS",
-        "image": "/assets/icons/sass.svg",
+        "text": "JavaScript",
+        "image": "/assets/icons/javascript.svg",
         "width": "28px",
         "height": "28px"
       },
@@ -38,14 +26,44 @@
         "height": "28px"
       },
       {
-        "text": "Styled-Components",
-        "image": "/assets/icons/styled.svg",
+        "text": "Python",
+        "image": "/assets/icons/python.svg",
         "width": "28px",
         "height": "28px"
       },
       {
-        "text": "Python",
-        "image": "/assets/icons/python.svg",
+        "text": "SASS",
+        "image": "/assets/icons/sass.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "Git",
+        "image": "/assets/icons/git.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "CSS",
+        "image": "/assets/icons/css.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "TypeScript",
+        "image": "/assets/icons/typescript.svg",
+        "width": "31.44px",
+        "height": "28px"
+      },
+      {
+        "text": "React Native",
+        "image": "/assets/icons/react-native.svg",
+        "width": "28px",
+        "height": "28px"
+      },
+      {
+        "text": "MongoDB",
+        "image": "/assets/icons/mongodb.svg",
         "width": "28px",
         "height": "28px"
       },
@@ -56,8 +74,8 @@
         "height": "28px"
       },
       {
-        "text": "Git",
-        "image": "/assets/icons/git.svg",
+        "text": "Styled-Components",
+        "image": "/assets/icons/styled.svg",
         "width": "28px",
         "height": "28px"
       }
