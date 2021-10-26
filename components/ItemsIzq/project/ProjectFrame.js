@@ -46,15 +46,9 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
     tl.to(project, { opacity: 0, duration: 0.5 });
 
     // Wait end the animation to redirect at project link
-    if (window.innerWidth > 767) {
-      setTimeout(() => {
-        router.push(`/${projectData.anchor}`);
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        router.push(`/${projectData.anchor}`);
-      }, 500);
-    }
+    setTimeout(() => {
+      router.push(`/${projectData.anchor}`);
+    }, 500);
   };
 
   // Change the x and y position to move image
