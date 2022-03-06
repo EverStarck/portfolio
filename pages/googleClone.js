@@ -14,9 +14,9 @@ const GoogleClone = () => {
       title="Google Clone Project || EverStarck"
       description="See my Google Clone project, where I made a functional Google from scratch, and no, this is not just a redirect 🤯"
       keywords="Google, clone, google chrome, everstarck, starck, portfolio"
-      ogUrl="https://www.googl.everstarck.com"
+      ogUrl="https://www.googl.everstarck.dev"
       ogTitle="👀 See my Google Clone project"
-      ogImg="https://googl.everstarck.com/glone.png"
+      ogImg="https://googl.everstarck.dev/glone.png"
       metaIconFolder="google"
     >
       <ProjectLayout projectData={data[0]} />

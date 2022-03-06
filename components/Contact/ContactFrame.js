@@ -1,5 +1,7 @@
 import { useTranslation } from "react-i18next";
 import styled from "@emotion/styled";
+import { useEffect, useRef } from "react";
+import fadeIn from "../../utils/FadeIn";
 
 import H1 from "../H1";
 import ContactButtons from "./ContactButtons";
@@ -12,6 +14,7 @@ const ContactStyled = styled.main`
   display: flex;
   justify-content: center;
   align-items: center;
+  opacity: 0;
   .aboutMainContainer {
     p {
       width: 50%;
@@ -34,8 +37,13 @@ const ContactStyled = styled.main`
 
 const ContactFrame = () => {
   const { t } = useTranslation("common");
+  let contentContact = useRef(null);
+  // Animation when enter to web
+  useEffect(() => {
+    fadeIn(contentContact);
+  }, []);
   return (
-    <ContactStyled>
+    <ContactStyled ref={(el) => (contentContact = el)}>
       <section className="aboutMainContainer">
         <H1 h1Text={t("letsBuild")} />
         <p>{t("contactText")}</p>

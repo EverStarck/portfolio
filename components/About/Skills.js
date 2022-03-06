@@ -27,6 +27,11 @@ const OtherFrame = styled.section`
     flex-wrap: wrap;
     position: relative;
   }
+  @media only screen and (max-width: 330px) {
+    .otherSkillsFrame {
+      height: auto;
+    }
+  }
 `;
 const Skills = ({
   skills,

@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
 import styled from "@emotion/styled";
+import fadeIn from "../../utils/FadeIn";
 import Info from "./Info";
 import Skills from "./Skills";
 import allSkills from "../../utils/allSkills.json";
@@ -15,11 +15,16 @@ const AboutMainFrame = styled.main`
   justify-content: center;
   align-items: center;
   padding: 50px 0;
+  opacity: 0;
+  .aboutMainContainer {
+    padding: 0 50px;
+  }
   @media only screen and (max-width: 767px) {
     max-width: 110vw;
     .aboutMainContainer {
       min-width: 90vw;
       max-width: 90vw;
+      padding: 0;
     }
   }
 `;
@@ -29,18 +34,7 @@ const AboutMain = () => {
   let contentAbout = useRef(null);
   // Animation when enter to web
   useEffect(() => {
-    gsap.fromTo(
-      contentAbout,
-      {
-        duration: 0,
-        opacity: "0",
-      },
-      {
-        duration: 1,
-        opacity: "1",
-        ease: "power4.inOut",
-      }
-    );
+    fadeIn(contentAbout);
   }, []);
 
   return (
@@ -51,7 +45,7 @@ const AboutMain = () => {
         <Skills
           skills={allSkills[0]}
           h2Text={t("Skills")}
-          skillsHeight="250px"
+          skillsHeight="300px"
         />
         <Skills
           skills={allSkills[1]}

@@ -4,7 +4,7 @@
 <hr />
 <br />
 <p align="center">
-  <a href="https://everstarck.com">
+  <a href="https://everstarck.dev">
     <img src="public/assets/avatar.webp" alt="Logo" width="64" height="64" style="border-radius:50%">
   </a>
 
@@ -14,7 +14,7 @@
     🧾 Once an app tester
     <br />
     <br />
-    <a href="https://everstarck.com">Visit site</a>
+    <a href="https://everstarck.dev">Visit site</a>
     ·
     <a href="https://github.com/EverStarck/portfolio/issues">Report Bug</a>
     ·

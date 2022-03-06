@@ -64,8 +64,10 @@ const ThanksPage = styled.main`
   }
 `;
 
+const random = Math.trunc(Math.random() * (8418 - 509) + 509);
+
 const Thanks = () => {
-  const [counter, setCounter] = useState("...");
+  const [counter, setCounter] = useState(random);
   // Context
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
   const router = useRouter();
@@ -73,13 +75,8 @@ const Thanks = () => {
 
   async function getCounter() {
     const res = await fetch(process.env.NEXT_PUBLIC_COUNTERPAGE);
-    if (!res.ok) {
-      const random = Math.random() * (8418 - 509) + 509;
-      setCounter(Math.trunc(random));
-    } else {
-      let resJson = await res.json();
-      setCounter(resJson.counter);
-    }
+    const resJson = await res.json();
+    setCounter(resJson.counter);
   }
 
   useEffect(() => {

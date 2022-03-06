@@ -4,7 +4,7 @@ import { AnimationContext } from "../context/AnimationContext";
 
 import { gsap } from "gsap";
 import styled from "@emotion/styled";
-
+import fadeIn from "../utils/FadeIn";
 import Hero from "./ItemsIzq/project/sections/Hero";
 import Mockups from "./ItemsIzq/project/sections/Mockups";
 import Development from "./ItemsIzq/project/sections/Development";
@@ -12,6 +12,7 @@ import Sketchs from "./ItemsIzq/project/sections/Sketchs";
 import Nav from "./Nav/Nav";
 
 const ProjectFramePage = styled.main`
+  opacity: 0;
   .projectWidth {
     min-width: 80vw;
     max-width: 80vw;
@@ -23,7 +24,7 @@ const ProjectFramePage = styled.main`
   }
 `;
 
-const ProjectLayout = ({projectData}) => {
+const ProjectLayout = ({ projectData }) => {
   // Context
   const { data } = useContext(DataContext);
   const { animationReady, setAnimationReady } = useContext(AnimationContext);
@@ -36,10 +37,14 @@ const ProjectLayout = ({projectData}) => {
       ...animationReady,
       projectClick: false,
       navFirstAnimation: true,
-      navClickLink: false,
       goBackButton: false,
     });
   }, []);
+
+  useEffect(() => {
+    if (data.length === 0) return;
+    fadeIn(projectScreen);
+  }, [data]);
 
   useEffect(() => {
     // Move the projects to left when click the nav button
@@ -57,18 +62,11 @@ const ProjectLayout = ({projectData}) => {
         tl.to(projectScreen, { xPercent: -15 });
       }
     }
-    // if (data.length > 0 && window.innerWidth < 767) {
-    //   if (animationReady.navClickLink) {
-    //     tl.to(projectScreen, { opacity: 0 });
-    //   }
-    // }
   }, [animationReady]);
 
   return (
     <>
-      {data.length === 0 ? (
-        <h1>Loading</h1>
-      ) : (
+      {data.length > 0 && (
         <>
           <Nav isOnProject buttonNavWorks />
           <ProjectFramePage ref={(el) => (projectScreen = el)}>

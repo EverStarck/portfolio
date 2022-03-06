@@ -31,32 +31,24 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
   const router = useRouter();
   // GSAP
   let project = useRef(null);
+  let projectFrameInfo = useRef(null);
   let tl = gsap.timeline({ defaults: { duration: 0.7 } });
 
   const goToProject = () => {
     setAnimationReady({
       ...animationReady,
       projectClick: true,
+      navClickLink: false,
       navButton: false,
     });
 
     // Animation when click on one project
-    if (window.innerWidth > 767) {
-      tl.to(project, { width: "110vw", delay: 0.5 });
-    } else {
-      tl.to(project, { opacity: 0, duration: 0.5 });
-    }
+    tl.to(project, { opacity: 0, duration: 0.5 });
 
     // Wait end the animation to redirect at project link
-    if (window.innerWidth > 767) {
-      setTimeout(() => {
-        router.push(`/${projectData.anchor}`);
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        router.push(`/${projectData.anchor}`);
-      }, 500);
-    }
+    setTimeout(() => {
+      router.push(`/${projectData.anchor}`);
+    }, 500);
   };
 
   // Change the x and y position to move image
@@ -91,7 +83,7 @@ const ProjectFrame = ({ projectData, isOnPage }) => {
     <>
       {projectData.thxButton && <ThanksButton />}
       <StyledProject ref={(el) => (project = el)} onMouseMove={onMouseMove}>
-        <div className="projectCointaner">
+        <div className="projectCointaner" ref={(el) => (projectFrameInfo = el)}>
           <ProjectImage
             goToProject={goToProject}
             projectData={projectData}

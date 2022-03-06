@@ -14,9 +14,9 @@ const WeatherApp = () => {
       title="Weather App Project || EverStarck"
       description="Check out my weather app project, where I made an app that shows you the latest weather information for today and the next 5 days, and you too can enjoy beautiful pictures!"
       keywords="Weather info, openweathermaps, Weather next days, pixabay, everstarck, starck, portfolio"
-      ogUrl="https://www.weather.everstarck.com"
+      ogUrl="https://www.weather.everstarck.dev"
       ogTitle="👀 See my Weather App project"
-      ogImg="https://weather.everstarck.com/MetaTagImage.png"
+      ogImg="https://weather.everstarck.dev/MetaTagImage.png"
       metaIconFolder="weather"
     >
       <ProjectLayout projectData={data[1]} />
