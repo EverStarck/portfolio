@@ -5,9 +5,9 @@ export default function Layout({
   title = "🌟 Welcome to my portfolio || EverStarck",
   description = "👀 Looking for a developer? Look at my portfolio, where you can see more about me, my projects and contact me!",
   keywords = "developer, fullstack, portfolio, seo, dev, coding, starck",
-  ogUrl = "https://www.everstarck.com",
+  ogUrl = "https://www.everstarck.dev",
   ogTitle = "EverStarck Web Developer ⚛",
-  ogImg = "https://everstarck.com/MetaTagImage.png",
+  ogImg = "https://everstarck.dev/MetaTagImage.png",
   metaIconFolder = "portfolio",
 }) {
   return (

@@ -196,7 +196,7 @@ const Nav = ({
           <TextLink fontSize="18px" changeLanguage />
           <TextLink textLink={t("Home")} closeNav={closeNav} />
           <TextLink textLink={t("About")} goTo="about" closeNav={closeNav} />
-          <TextLink goTo="https://blog.everstarck.com" external/>
+          <TextLink goTo="https://blog.everstarck.dev" external/>
           <TextLink
             textLink={t("Contact")}
             goTo="contact"
