@@ -2,6 +2,8 @@ import Image from "next/image";
 import styled from "@emotion/styled";
 import Link from "next/link";
 
+import HeadLayout from "../components/HeadLayout";
+
 export default function Custom404() {
   const Frame404 = styled.div`
     background-color: var(--yellow);
@@ -70,25 +72,36 @@ export default function Custom404() {
   `;
 
   return (
-    <Frame404>
-      <div className="imgFrame404">
-        <Image
-          src="/assets/404.webp"
-          alt="Picture of the author"
-          layout="responsive"
-          width={500}
-          height={500}
-        />
-      </div>
-      <main>
-        <h1>Whooooops!</h1>
-        <h2>I'm dead? No! I just can't find the page you're looking for 😥</h2>
-        <section>
-          <Link href="/">
-            <a>Go to Home!</a>
-          </Link>
-        </section>
-      </main>
-    </Frame404>
+    <HeadLayout
+      title="404 || EverStarck"
+      description="Looks like you got lost! Go home on everstarck.dev!"
+      keywords="404, error"
+      ogUrl="https://www.weather.everstarck.dev"
+      ogTitle="404 page"
+      ogImg="https://weather.everstarck.dev/MetaTagImage.png"
+    >
+      <Frame404>
+        <div className="imgFrame404">
+          <Image
+            src="/assets/404.webp"
+            alt="Picture of the author"
+            layout="responsive"
+            width={500}
+            height={500}
+          />
+        </div>
+        <main>
+          <h1>Whooooops!</h1>
+          <h2>
+            I'm dead? No! I just can't find the page you're looking for 😥
+          </h2>
+          <section>
+            <Link href="/">
+              <a>Go to Home!</a>
+            </Link>
+          </section>
+        </main>
+      </Frame404>
+    </HeadLayout>
   );
 }
