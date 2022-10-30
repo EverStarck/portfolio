@@ -1,6 +1,6 @@
 import { appWithTranslation } from "next-i18next";
 import AnimationProvider from "../context/AnimationContext";
-import { Analytics } from "@vercel/analytics/dist/react";
+import { Analytics } from "@vercel/analytics/react";
 import DataProvider from "../context/DataContext";
 import "../styles/globals.css";
 
