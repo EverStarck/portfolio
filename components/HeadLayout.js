@@ -62,6 +62,7 @@ export default function Layout({
           name="google-site-verification"
           content="ZJbTYzN7mCOFKfUVozRPtd02757Q7IFuxa8xU-66s48"
         />
+        <script defer data-domain="everstarck.dev" src="https://plausible.io/js/plausible.js"></script>
       </Head>
       {children}
     </>
