@@ -42,7 +42,7 @@ const ContactButtons = ({ aAnimation, buttonsFlex = false }) => {
       />
       <div className="otherButtonsContact">
         <small>or</small>
-        <Button
+        {/* <Button
           aHref="https://twitter.com/EverStarck"
           aText="Twitter"
           aBgColor="var(--background)"
@@ -51,7 +51,7 @@ const ContactButtons = ({ aAnimation, buttonsFlex = false }) => {
           aWidth="28px"
           aBgImg="url(/assets/icons/twitter.svg) no-repeat center center"
           aAnimation={aAnimation}
-        />
+        /> */}
         <Button
           aHref="https://github.com/EverStarck"
           aText="Github"

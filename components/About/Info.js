@@ -27,18 +27,23 @@ const Info = () => {
   const { t } = useTranslation("about");
   return (
     <InfoFrame>
-      <H1 h1Text="Ever Alejandro" />
+      <H1 h1Text="Ever Alvarez" />
       <h2>{t("frontEndDev")}</h2>
-      <p>
+      <p style={{
+        lineHeight: "1.8rem",
+        maxWidth: "75ch"
+      }}>
         {t("description1")}
-        <br />
+        <br style={{
+          marginBottom: "1rem"
+        }}/>
         {t("description2")}
       </p>
 
       <div className="infoImgFrame">
         <Image
           src="/assets/me.webp"
-          alt="Picture of the author (Ever Alejandro)"
+          alt="Picture of the author (Ever Alvarez)"
           width={656}
           height={745}
           layout="intrinsic"

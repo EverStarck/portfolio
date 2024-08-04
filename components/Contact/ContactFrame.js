@@ -17,8 +17,8 @@ const ContactStyled = styled.main`
   opacity: 0;
   .aboutMainContainer {
     p {
-      width: 50%;
-      margin: 70px 0px 80px 50px;
+      width: 100%;
+      margin: 30px 20px;
     }
   }
   @media only screen and (max-width: 767px) {
