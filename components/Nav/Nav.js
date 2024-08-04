@@ -180,7 +180,7 @@ const Nav = ({
     }
   }, [animationReady]);
 
-  const router = useRouter();
+  // const router = useRouter();
 
   return (
     <>
@@ -197,11 +197,11 @@ const Nav = ({
           <TextLink textLink={t("Home")} closeNav={closeNav} />
           <TextLink textLink={t("About")} goTo="about" closeNav={closeNav} />
           <TextLink goTo="https://blog.everstarck.dev" external/>
-          <TextLink
+          {/* <TextLink
             textLink={t("Contact")}
             goTo="contact"
             closeNav={closeNav}
-          />
+          /> */}
         </div>
       </NavStyled>
 

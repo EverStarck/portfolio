@@ -34,7 +34,7 @@ I designed the portfolio from scratch with figma and built it with NextJs and No
   It shows 3 of my projects, but they are not all I have. I have made quite a few sites that handle requests and also some CRUD. I chose those projects because they are the ones that seem most interesting to me. A Google clone that works without redirects? How can that be possible?
 
 ## Contact
-Feel free to reach out if you're looking for a developer, have a question, or just want to connect
+Feel free to reach out if you're looking for a developer, have a question, or just want to connect.
 <br/>
 [@EverStarck](https://twitter.com/EverStarck)
 [LinkedIn](https://www.linkedin.com/in/everstarck/)

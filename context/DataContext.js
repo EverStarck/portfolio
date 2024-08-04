@@ -10,9 +10,9 @@ const DataProvider = ({ children }) => {
     setData(projects);
   }
 
-  useEffect(() => {
-    mountData();
-  }, []);
+  // useEffect(() => {
+  //   mountData();
+  // }, []);
 
   return (
     <DataContext.Provider value={{ data, setData }}>
